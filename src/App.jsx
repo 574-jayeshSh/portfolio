@@ -4,11 +4,11 @@ import SearchBox from './components/SearchBox'
 import {Routes , Route} from "react-router-dom"
 import Home from "./pages/Home"
 import Results from "./pages/Results"
-import About from "./pages/about"
-import Projects from "./pages/projects"
-import Skills from "./pages/skills"
+import About from "./pages/About"
+import Projects from "./pages/Projects"
+import Skills from "./pages/Skills"
 import Contact from "./pages/Contact"
-import Achievements from "./pages/achievements"
+import Achievements from "./pages/Achievements"
 
 const App = () => {
   return (
