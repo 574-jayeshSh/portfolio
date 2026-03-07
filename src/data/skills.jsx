@@ -1,9 +1,15 @@
 const skills = {
-    languages: ["C++", "Pyhton", "Java", "SQL", "JavaScript"],
-    frameworks: ["React", "Node.js", "Express", "TailwindCSS", "Hono", "TypeScript", "Next.js"],
-    tools: ["Git", "Linux", "VS Code", "MongoDB", "PostgreSQL", "Postman", "Prisma" ],
-    coreConcepts: ["DSA", "Operating System", "Compiler Design", "OOPs"],
-    softSkills: ["Problem Solving", "Teamwork", "Communication"],
+  title: "Skills & Tech Stack",
+  url: "/pages/skills",
+  description: "Technical skills of Jayesh Sharma including programming languages, frameworks, tools, and core CS subjects.",
+
+  content: {
+    languages: ["C++", "Python", "Java", "JavaScript"],
+    frameworks: ["React", "Node.js", "Express"],
+    tools: ["Git", "Linux", "VS Code"],
+    coreConcepts: ["DSA", "Operating Systems", "DBMS", "Computer Networks"],
+    softSkills: ["Problem Solving", "Teamwork", "Consistency"]
+  }
 }
 
 export default skills

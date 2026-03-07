@@ -6,11 +6,11 @@ import projects from './projects'
 import skills from './skills'
 
 const allData = [
-    { category : "about", data: about},
-    { category : "achievements", data: achievements},
-    { category : "contacts", data: contact},
-    { category : "projects", data: projects},
-    { category : "skills", data: skills}
+    { category : "about", ...about},
+    { category : "achievements", ...achievements},
+    { category : "contacts", ...contact},
+    { category : "projects", ...projects},
+    { category : "skills", ...skills}
 ]
 
 export default allData
