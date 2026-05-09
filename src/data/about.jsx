@@ -7,7 +7,7 @@ const about = {
     resume: "",
 
     title: "About Jayesh Sharma",
-    url: "../pages/about",
+    url: "/pages/about",
     description: "Jayesh Sharma is a Computer Engineering student who works on MERN stack, DSA, and unique creative coding projects...",
     content: `
         This is the full content that will appear in detailed wiki-style page.

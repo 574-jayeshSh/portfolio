@@ -10,14 +10,14 @@ const Results = () => {
   const query = new URLSearchParams(location.search).get("q")?.toLowerCase();
   return (
     <div>
-      <div className="flex justify-between items-center px-6 pt-6 pb-3 ">
-        <div className="flex items-center gap-6">
-          <Name small />
+      <div className="flex items-center px-6 py-4 gap-8 border-b border-gray-100">
+        <Name small />
+        <div className="flex-1 max-w-2xl">
           <SearchBox isResults />
         </div>
         <Navbar />
       </div>
-      <div className="px-6 mt-2 flex gap-6 text-sm text-gray-600 border-b">
+      <div className="px-6 mt-0 flex gap-6 text-sm text-gray-500 border-b overflow-x-auto whitespace-nowrap">
         <button className="pb-2 font-medium text-blue-600 border-b-2 border-blue-600">
           All
         </button>
@@ -25,7 +25,7 @@ const Results = () => {
         <button className="pb-2 hover:text-blue-600">Images</button>
         <button className="pb-2 hover:text-blue-600">Posts</button>
       </div>
-      <div className="w-full h-0.5 border-black bg-gray-200 rounded-full"></div>
+
       <Result query={query} />
     </div>
   );

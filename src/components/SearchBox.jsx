@@ -1,58 +1,53 @@
-import React, { useEffect, useRef, useState } from "react";
-import allData from "../data/allData";
+import React, { useState, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import allData from "../data/allData";
+import { FaSearch } from "react-icons/fa";
 
-const SearchBox = () => {
+export default function SearchBox({ isResults }) {
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-
   const searchRef = useRef(null);
   const navigate = useNavigate();
 
-  // LIVE SEARCH
+  // Handle clicking outside to close results
   useEffect(() => {
-    const searchInput = query.toLowerCase().trim();
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setIsFocused(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
-    if (searchInput === "") {
+  // Simple Search Logic
+  useEffect(() => {
+    if (query.trim() === "") {
       setResults([]);
       return;
     }
 
+    const lowerQuery = query.toLowerCase();
     const filtered = allData.filter((item) => {
-      const titleMatch = item.title.toLowerCase().includes(searchInput);
-      const descriptionMatch = item.description.toLowerCase().includes(searchInput);
-      const categoryMatch = item.category.toLowerCase().includes(searchInput);
-
-      return titleMatch || descriptionMatch || categoryMatch;
+      const titleMatch = item.title && item.title.toLowerCase().includes(lowerQuery);
+      const categoryMatch = item.category && item.category.toLowerCase().includes(lowerQuery);
+      return titleMatch || categoryMatch;
     });
 
-    setResults(filtered);
+    setResults(filtered.slice(0, 8)); // Limit to 8 results
   }, [query]);
 
-  // CLICK OUTSIDE CLOSE LOGIC
-  useEffect(() => {
-    const handler = (e) => {
-      if (searchRef.current && !searchRef.current.contains(e.target)) {
-        setIsFocused(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handler);
-    return () => document.removeEventListener("mousedown", handler);
-  }, []);
-
-  // --------------------------------------
   // UI STARTS HERE
   // --------------------------------------
   return (
-    <div ref={searchRef} className="flex flex-col items-center mt-5 w-full">
-      <div className="relative w-[500px]">
+    <div ref={searchRef} className={`flex flex-col ${isResults ? "items-start" : "items-center mt-5"} w-full font-outfit`}>
+      <div className={`relative ${isResults ? "w-[600px]" : "w-[500px]"}`}>
         <input
           type="text"
-          className={`border w-full h-12 p-4 rounded-full transition-colors duration-300 
-          border-gray-200 focus:outline-none focus:shadow-md 
-          ${isFocused && results.length > 0 ? "rounded-b-none border-b-0" : ""}`
+          className={`border w-full h-11 p-4 rounded-full transition-all duration-300 
+          border-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-400/50 focus:border-transparent focus:shadow-md 
+          ${isFocused && results.length > 0 ? "rounded-b-none border-b-0 shadow-md" : ""}`
           }
           onChange={(e) => setQuery(e.target.value)}
           onFocus={() => setIsFocused(true)}
@@ -68,23 +63,28 @@ const SearchBox = () => {
 
         {isFocused && query.trim() !== "" && (
           <ul className="absolute top-full w-full bg-white border border-t-0 
-          border-gray-200 rounded-b-3xl shadow-lg overflow-hidden z-10 max-h-60 overflow-y-auto">
+          border-gray-200 rounded-b-3xl shadow-lg overflow-hidden z-50 max-h-60 overflow-y-auto">
             
             {results.length > 0 ? (
               results.map((item, index) => (
                 <li
                   key={index}
                   onClick={() => {
-                    navigate(`/results?q=${item.category}`);
+                    navigate(item.url);
                     setIsFocused(false);
                   }}
-                  className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 group transition-colors"
                 >
-                  {item.title}
+                  <div className="flex items-center gap-3">
+                    <span className="text-blue-400 opacity-60 group-hover:opacity-100 transition-opacity">
+                      <FaSearch />
+                    </span>
+                    <span className="text-gray-700">{item.title}</span>
+                  </div>
                 </li>
               ))
             ) : (
-              <li className="px-4 py-2 text-gray-500">No results found</li>
+              <li className="px-4 py-2 text-gray-400 italic text-sm">Press Enter to search for "{query}"</li>
             )}
 
           </ul>
@@ -92,6 +92,4 @@ const SearchBox = () => {
       </div>
     </div>
   );
-};
-
-export default SearchBox;
+}

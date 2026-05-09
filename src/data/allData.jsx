@@ -8,7 +8,7 @@ import skills from './skills'
 const allData = [
     { category : "about", ...about},
     { category : "achievements", ...achievements},
-    { category : "contacts", ...contact},
+    { category : "contact", ...contact},
     { category : "projects", ...projects},
     { category : "skills", ...skills}
 ]
