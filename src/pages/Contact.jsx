@@ -1,6 +1,5 @@
-/* eslint-disable no-unused-vars */
 import React from "react";
-import { motion } from "framer-motion";
+import { Motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
 import contactData from "../data/contact";
@@ -48,7 +47,7 @@ export default function Contact() {
 
       {/* CENTER STAGE: COMMS TERMINAL */}
       <div className="absolute inset-0 flex items-center justify-center z-10">
-        <motion.div 
+        <Motion.div 
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="max-w-4xl w-full mx-20 p-16 rounded-[3rem] bg-black/40 border border-blue-500/10 backdrop-blur-3xl relative overflow-hidden"
@@ -98,7 +97,7 @@ export default function Contact() {
                <span className="animate-pulse">●</span>
             </div>
           </div>
-        </motion.div>
+        </Motion.div>
       </div>
 
       {/* AMBIENT EFFECTS */}

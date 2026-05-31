@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { Motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
 import skillsData from "../data/skills";
@@ -54,7 +54,7 @@ export default function Skills() {
               onClick={prevCat}
               className="p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 group"
             >
-              <motion.span animate={{ x: [-2, 2, -2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="block">◀</motion.span>
+              <Motion.span animate={{ x: [-2, 2, -2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="block">◀</Motion.span>
             </button>
           </div>
 
@@ -63,25 +63,25 @@ export default function Skills() {
               onClick={nextCat}
               className="p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 group"
             >
-              <motion.span animate={{ x: [2, -2, 2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="block">▶</motion.span>
+              <Motion.span animate={{ x: [2, -2, 2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="block">▶</Motion.span>
             </button>
           </div>
 
           {/* ROTATING ORBITS */}
           <div className="relative w-[380px] h-[380px] flex items-center justify-center">
-            <motion.div 
+            <Motion.div 
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
               className="absolute inset-0 border border-blue-500/10 rounded-full"
             />
-            <motion.div 
+            <Motion.div 
               animate={{ rotate: -360 }}
               transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
               className="absolute inset-10 border border-blue-400/5 rounded-full"
             />
 
             <AnimatePresence mode="wait">
-              <motion.div
+              <Motion.div
                 key={catIndex}
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -94,11 +94,11 @@ export default function Skills() {
                 <h2 className="text-lg font-black italic text-blue-400 tracking-[0.2em] uppercase text-center">
                   {currentCategory.label}
                 </h2>
-              </motion.div>
+              </Motion.div>
             </AnimatePresence>
 
             {/* HOLOGRAPHIC SCAN LINE */}
-            <motion.div 
+            <Motion.div 
               animate={{ top: ["20%", "80%", "20%"] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               className="absolute left-10 right-10 h-[1px] bg-blue-400/50 shadow-[0_0_15px_#3b82f6] z-30"
@@ -109,7 +109,7 @@ export default function Skills() {
         {/* SKILL GRID BELOW THE CIRCLE */}
         <div className="mt-8 w-full max-w-xl pointer-events-auto">
           <AnimatePresence mode="wait">
-            <motion.div 
+            <Motion.div 
               key={catIndex}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function Skills() {
               className="grid grid-cols-2 gap-3"
             >
               {currentCategory.data.map((skill, idx) => (
-                <motion.div 
+                <Motion.div 
                   key={skill}
                   initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -128,9 +128,9 @@ export default function Skills() {
                   <span className="text-[9px] font-black tracking-widest text-white/70 group-hover:text-white uppercase truncate">
                     {skill}
                   </span>
-                </motion.div>
+                </Motion.div>
               ))}
-            </motion.div>
+            </Motion.div>
           </AnimatePresence>
         </div>
 
@@ -149,7 +149,7 @@ export default function Skills() {
                     <span className="text-blue-500">{95 - (idx * 5)}%</span>
                   </div>
                   <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
-                    <motion.div 
+                    <Motion.div 
                       initial={{ width: 0 }}
                       animate={{ width: `${95 - (idx * 5)}%` }}
                       transition={{ duration: 1.5, delay: idx * 0.2 }}

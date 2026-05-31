@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { Motion } from "framer-motion";
 
 const Terminal = ({ text }) => {
   const [displayedText, setDisplayedText] = useState("");
@@ -31,7 +31,7 @@ const Terminal = ({ text }) => {
         <span className="text-green-500">guest@jayesh:~$</span> cat bio.txt
         <p className="mt-2 text-white/80 whitespace-pre-wrap">
           {displayedText}
-          <motion.span
+          <Motion.span
             animate={{ opacity: [1, 0] }}
             transition={{ repeat: Infinity, duration: 0.8 }}
             className="inline-block w-1.5 h-3 bg-blue-500 ml-1"
