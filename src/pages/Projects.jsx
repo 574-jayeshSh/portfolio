@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
 import Terminal from "../components/Terminal";
@@ -51,12 +51,12 @@ export default function Projects() {
           
           {/* NAVIGATION BUTTONS */}
           <button onClick={prevProject} className="z-30 p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110">
-            <Motion.span animate={{ x: [-2, 2, -2] }} transition={{ repeat: Infinity, duration: 1.5 }}>◀</Motion.span>
+            <motion.span animate={{ x: [-2, 2, -2] }} transition={{ repeat: Infinity, duration: 1.5 }}>◀</motion.span>
           </button>
 
           <div className="relative flex-1 flex flex-col items-center justify-center">
             <AnimatePresence mode="wait">
-              <Motion.div
+              <motion.div
                 key={currentIndex}
                 initial={{ opacity: 0, y: 50, scale: 0.9 }}
                 animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -72,7 +72,7 @@ export default function Projects() {
                       <FaFolderOpen />
                    </div>
                    {/* SCAN LINE */}
-                   <Motion.div 
+                   <motion.div 
                       animate={{ top: ["0%", "100%", "0%"] }}
                       transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
                       className="absolute left-0 right-0 h-[1px] bg-blue-500 shadow-[0_0_10px_#3b82f6] z-30"
@@ -88,12 +88,12 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-              </Motion.div>
+              </motion.div>
             </AnimatePresence>
           </div>
 
           <button onClick={nextProject} className="z-30 p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110">
-            <Motion.span animate={{ x: [2, -2, 2] }} transition={{ repeat: Infinity, duration: 1.5 }}>▶</Motion.span>
+            <motion.span animate={{ x: [2, -2, 2] }} transition={{ repeat: Infinity, duration: 1.5 }}>▶</motion.span>
           </button>
         </div>
       </div>

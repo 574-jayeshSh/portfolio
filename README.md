@@ -19,7 +19,7 @@ The portfolio is built to mimic a high-security data vault, providing a unique s
 
 - **Core**: React 19 + Vite
 - **Styling**: Tailwind CSS 4 (Blue/Cyan/Navy Palette)
-- **Animation**: Framer Motion (Layout transitions, holographic effects)
+- **Animation**: Framer motion (Layout transitions, holographic effects)
 - **Icons**: Font Awesome (Stable Integration)
 - **Typography**: Outfit (Modern Geometric Sans)
 

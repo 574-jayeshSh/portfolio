@@ -1,5 +1,5 @@
 import React from "react";
-import { Motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
 import achievementsData from "../data/achievements";
@@ -28,7 +28,7 @@ export default function Achievements() {
 
         <div className="flex gap-4 items-center">
            <div className="h-2 w-32 bg-white/5 rounded-full overflow-hidden">
-             <Motion.div animate={{ width: "85%" }} transition={{ duration: 2 }} className="h-full bg-blue-500 shadow-[0_0_10px_#3b82f6]" />
+             <motion.div animate={{ width: "85%" }} transition={{ duration: 2 }} className="h-full bg-blue-500 shadow-[0_0_10px_#3b82f6]" />
            </div>
            <p className="text-[10px] font-black tracking-widest text-blue-500">LEVEL_85</p>
         </div>
@@ -39,7 +39,7 @@ export default function Achievements() {
 
       {/* CENTER CONTENT */}
       <div className="absolute left-64 right-10 top-32 bottom-10 z-20 overflow-y-auto custom-scrollbar pr-10">
-        <Motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
           
           <div className="space-y-16">
             {achievementsData.content.map((section, idx) => (
@@ -51,7 +51,7 @@ export default function Achievements() {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   {section.items.map((item, iIdx) => (
-                    <Motion.div 
+                    <motion.div 
                       key={iIdx}
                       whileHover={{ x: 10, backgroundColor: "rgba(59,130,246,0.03)" }}
                       className="relative flex items-center gap-8 p-6 rounded-2xl bg-black/40 border border-white/5 hover:border-blue-500/30 transition-all cursor-default group overflow-hidden"
@@ -76,18 +76,18 @@ export default function Achievements() {
                       </div>
 
                       {/* DECORATIVE SCAN LINE */}
-                      <Motion.div 
+                      <motion.div 
                         animate={{ left: ["-100%", "200%"] }}
                         transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
                         className="absolute top-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent skew-x-12"
                       />
-                    </Motion.div>
+                    </motion.div>
                   ))}
                 </div>
               </div>
             ))}
           </div>
-        </Motion.div>
+        </motion.div>
       </div>
 
       {/* FOOTER DATA */}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import { Motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const SideMenu = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const SideMenu = () => {
           >
             {/* ACTIVE INDICATOR LINE */}
             {isActive && (
-              <Motion.div
+              <motion.div
                 layoutId="menu-indicator"
                 className="absolute left-[-24px] top-0 bottom-0 w-1 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]"
               />

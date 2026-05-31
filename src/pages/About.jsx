@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import SideMenu from "../components/SideMenu";
 import Terminal from "../components/Terminal";
 import aboutData from "../data/about";
@@ -75,7 +75,7 @@ export default function AboutPage() {
           <div className="relative h-[85vh] aspect-[2/3]">
 
             {/* SCAN LINE */}
-            <Motion.div
+            <motion.div
               animate={{ top: ["0%", "100%", "0%"] }}
               transition={{
                 duration: 4,
@@ -86,7 +86,7 @@ export default function AboutPage() {
             />
 
             {/* MODEL */}
-            <Motion.img
+            <motion.img
               src="/model.png"
               alt="specialist"
               initial={{ opacity: 0, scale: 0.8 }}
@@ -114,7 +114,7 @@ export default function AboutPage() {
 
             {activeTab === "CORE" && (
 
-              <Motion.div
+              <motion.div
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 exit={{ opacity: 0, x: -20 }}
@@ -148,7 +148,7 @@ export default function AboutPage() {
 
                       <div className="h-[2px] w-full bg-white/5 rounded-full overflow-hidden">
 
-                        <Motion.div
+                        <motion.div
                           initial={{ width: 0 }}
                           animate={{ width: attr.val }}
                           transition={{
@@ -166,7 +166,7 @@ export default function AboutPage() {
 
                 </div>
 
-              </Motion.div>
+              </motion.div>
 
             )}
 
@@ -183,7 +183,7 @@ export default function AboutPage() {
 
           {systemLogs.map((log, i) => (
 
-            <Motion.p
+            <motion.p
               key={i}
               initial={{ opacity: 0 }}
               animate={{ opacity: 0.3 }}
@@ -191,7 +191,7 @@ export default function AboutPage() {
               className="text-[9px] font-mono tracking-tighter"
             >
               {log}
-            </Motion.p>
+            </motion.p>
 
           ))}
 
@@ -205,7 +205,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-24 items-center">
 
           {/* LEFT */}
-          <Motion.div
+          <motion.div
             initial={{ opacity: 0, x: -100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -240,10 +240,10 @@ export default function AboutPage() {
 
             </div>
 
-          </Motion.div>
+          </motion.div>
 
           {/* RIGHT */}
-          <Motion.div
+          <motion.div
             initial={{ opacity: 0, y: 100 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
@@ -259,7 +259,7 @@ export default function AboutPage() {
               className="relative z-10 w-full object-contain drop-shadow-[0_0_60px_rgba(59,130,246,0.4)]"
             />
 
-          </Motion.div>
+          </motion.div>
 
         </div>
 
