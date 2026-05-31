@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+<<<<<<< HEAD
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@100..900&display=swap');
+=======
+>>>>>>> 784dc2f4b099c165f383a3969b1a79e858950a2c
 @import "tailwindcss";
 
 @theme {
@@ -7,7 +10,10 @@
     --color-primary: #3b82f6; /* Blue 500 */
     --color-secondary: #06b6d4; /* Cyan 500 */
     --color-accent: #2563eb; /* Blue 600 */
+<<<<<<< HEAD
     --font-commissioner: "Commissioner", sans-serif;
+=======
+>>>>>>> 784dc2f4b099c165f383a3969b1a79e858950a2c
 }
 
 @layer base {
