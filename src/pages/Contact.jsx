@@ -1,8 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import SideMenu from "../components/SideMenu";
 import contactData from "../data/contact";
+import resumePdf from "../assets/resume.pdf";
 import { FaEnvelope, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
 
 export default function Contact() {
@@ -82,9 +84,14 @@ export default function Contact() {
           </div>
 
           <div className="mt-16 flex flex-col items-center">
-            <button className="px-16 py-5 rounded-2xl bg-blue-500 text-white font-black tracking-[0.5em] uppercase text-xs hover:scale-[1.05] transition-all shadow-[0_0_40px_rgba(59,130,246,0.3)] mb-6">
-              Download_Intel (PDF)
-            </button>
+            <a
+              href={resumePdf}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-16 py-5 rounded-2xl bg-blue-500 text-white font-black tracking-[0.5em] uppercase text-xs hover:scale-[1.05] transition-all shadow-[0_0_40px_rgba(59,130,246,0.3)] mb-6 inline-block text-center"
+            >
+              Download Resume (PDF)
+            </a>
             <div className="flex items-center gap-3 text-[9px] font-bold text-white/20 tracking-widest uppercase">
                <span className="animate-pulse">●</span>
                <span>Encryption: 256-Bit AES</span>

@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
-import {  AnimatePresence } from "framer-motion";
+import { motion , AnimatePresence } from "framer-motion";
 import SideMenu from "../components/SideMenu";
 import Terminal from "../components/Terminal";
 import aboutData from "../data/about";
