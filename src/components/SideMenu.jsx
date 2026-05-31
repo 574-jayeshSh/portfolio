@@ -16,7 +16,7 @@ const SideMenu = () => {
 
   return (
     <div className="fixed left-0 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-1 pl-6">
-      {menuItems.map((item, i) => {
+      {menuItems.map((item) => {
         const isActive = location.pathname === item.path;
         return (
           <button
