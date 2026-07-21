@@ -1,109 +1,163 @@
-import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import SideMenu from "../components/SideMenu";
-import MobileMenu from "../components/MobileMenu";
 import achievementsData from "../data/achievements";
-import { FaTrophy, FaMedal, FaCode, FaStar } from "react-icons/fa";
+import { FaTrophy, FaMedal, FaCode, FaStar, FaGraduationCap, FaCheckCircle } from "react-icons/fa";
 
 const sectionIcons = {
-  "Hackathons & Competitions": <FaMedal />,
-  "Academic & Certifications": <FaTrophy />,
-  "Open Source & Projects": <FaCode />,
-  "Skills & Milestones": <FaStar />,
+  "Hackathons & Competitions": { icon: FaTrophy, color: "text-amber-500", ring: "bg-amber-100", line: "bg-amber-400" },
+  "Academic & Certifications": { icon: FaGraduationCap, color: "text-blue-500", ring: "bg-blue-100", line: "bg-blue-400" },
+  "Open Source & Projects": { icon: FaCode, color: "text-emerald-500", ring: "bg-emerald-100", line: "bg-emerald-400" },
+  "Skills & Milestones": { icon: FaStar, color: "text-purple-500", ring: "bg-purple-100", line: "bg-purple-400" },
+};
+
+const stats = [
+  { label: "13 Repos" },
+  { label: "38 Stars" },
+  { label: "250+ DSA Problems" },
+  { label: "5 Languages" },
+];
+
+const containerVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2 } },
+};
+
+const nodeVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -15 },
+  visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } },
 };
 
 export default function Achievements() {
   const navigate = useNavigate();
+  const sections = achievementsData?.content || [];
 
   return (
-    <div className="relative w-full min-h-screen md:h-screen overflow-auto md:overflow-hidden bg-[#0a0f1e] text-white font-outfit">
-      {/* BACKGROUND GRID */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
-
-      {/* TOP BAR */}
-      <div className="absolute top-0 left-0 w-full px-4 md:px-8 py-5 flex justify-between items-center z-50 border-b border-white/5 backdrop-blur-sm bg-black/20">
-        <div className="flex items-center gap-4">
-          <MobileMenu />
-          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-[rgba(59,130,246,0.03)] cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
-            JS
-          </div>
-          <div>
-            <h1 className="text-lg md:text-xl font-black tracking-tighter leading-tight uppercase">Hall_of_Fame</h1>
-            <p className="text-[9px] tracking-[0.3em] text-[rgba(59,130,246,0.5)] font-bold uppercase">Achievement_Protocol_v2</p>
+    <div className="min-h-screen bg-white">
+      {/* Top Nav */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to Home
+          </button>
+          <div className="flex items-center gap-2 text-amber-500">
+            <FaTrophy className="w-4 h-4" />
+            <span className="text-sm font-semibold tracking-wide">ACHIEVEMENTS</span>
           </div>
         </div>
-        <div className="flex gap-4 items-center">
-          <div className="h-2 w-20 md:w-32 bg-white/5 rounded-full overflow-hidden">
-            <motion.div animate={{ width: "85%" }} transition={{ duration: 2 }} className="h-full bg-blue-500 shadow-[0_0_10px_#3b82f6]" />
-          </div>
-          <p className="text-[10px] font-black tracking-widest text-blue-500">LEVEL_85</p>
+      </nav>
+
+      {/* Hero */}
+      <section className="pt-32 pb-16 px-6">
+        <div className="max-w-5xl mx-auto text-center">
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
+          >
+            Achievements
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            className="mt-4 text-lg text-gray-500"
+          >
+            Milestones and accomplishments
+          </motion.p>
         </div>
-      </div>
+      </section>
 
-      {/* SIDE MENU - desktop */}
-      <div className="hidden md:block">
-        <SideMenu />
-      </div>
+      {/* Timeline */}
+      <section className="px-6 pb-24">
+        <div className="max-w-4xl mx-auto relative">
+          {/* Vertical connecting line */}
+          <div className="absolute left-[27px] md:left-[31px] top-0 bottom-0 w-px bg-gray-200" />
 
-      {/* CENTER CONTENT */}
-      <div className="pt-24 pb-16 md:pt-32 md:bottom-10 px-4 md:px-0 md:left-64 md:right-10 md:absolute md:top-32 z-20 md:overflow-y-auto custom-scrollbar md:pr-10">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-          <div className="space-y-10 md:space-y-16">
-            {achievementsData.content.map((section, idx) => (
-              <div key={idx} className="relative">
-                <h3 className="text-[10px] font-black mb-6 md:mb-8 text-blue-400 flex items-center gap-4 md:gap-6 tracking-[0.5em] uppercase">
-                  <span className="bg-[rgba(59,130,246,0.06)] px-3 py-1 rounded border border-[rgba(59,130,246,0.1)] flex items-center gap-2">
-                    <span className="text-blue-500">{sectionIcons[section.section] || <FaTrophy />}</span>
-                    {section.section}
-                  </span>
-                  <div className="h-[1px] flex-1 bg-gradient-to-r from-blue-500/20 to-transparent" />
-                </h3>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            className="flex flex-col gap-12"
+          >
+            {sections.map((section, sIdx) => {
+              const cfg = sectionIcons[section.section] || sectionIcons["Skills & Milestones"];
+              const Icon = cfg.icon;
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
-                  {section.items.map((item, iIdx) => (
-                    <motion.div
-                      key={iIdx}
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: idx * 0.1 + iIdx * 0.05 }}
-                      whileHover={{ x: 10, backgroundColor: "rgba(59,130,246,0.03)" }}
-                      className="relative flex items-center gap-4 md:gap-8 p-4 md:p-6 rounded-2xl glass-card border border-[rgba(59,130,246,0.06)] hover:border-blue-500/30 transition-all cursor-default group overflow-hidden"
+              return (
+                <motion.div
+                  key={sIdx}
+                  variants={nodeVariants}
+                  className="relative flex gap-6 md:gap-8"
+                >
+                  {/* Circle node */}
+                  <div className="relative z-10 flex-shrink-0">
+                    <div className={`w-14 h-14 rounded-full ${cfg.ring} flex items-center justify-center ring-4 ring-white`}>
+                      <Icon className={`w-5 h-5 ${cfg.color}`} />
+                    </div>
+                  </div>
+
+                  {/* Content card */}
+                  <div className="flex-1 bg-gray-50 rounded-xl p-6 border border-gray-100">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">{section.section}</h3>
+                    <motion.ul
+                      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: true }}
+                      className="space-y-2.5"
                     >
-                      <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[rgba(59,130,246,0.03)] flex items-center justify-center text-xl md:text-3xl text-blue-500/80 group-hover:scale-110 transition-transform flex-shrink-0">
-                        <div className="absolute inset-0 rounded-2xl border border-blue-400/10 rotate-45 group-hover:rotate-90 transition-transform duration-700" />
-                        <div className="absolute inset-0 rounded-2xl border border-[rgba(59,130,246,0.1)] -rotate-12 group-hover:-rotate-45 transition-transform duration-700" />
-                        <FaTrophy />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <span className="text-gray-300 font-black text-xs md:text-sm tracking-tight group-hover:text-white transition-colors block mb-1 uppercase italic truncate">
-                          {item}
-                        </span>
-                        <div className="flex items-center gap-2">
-                          <div className="h-1 w-16 md:w-20 bg-white/5 rounded-full overflow-hidden">
-                            <div className="h-full bg-blue-500/40 w-full" />
-                          </div>
-                          <span className="text-[8px] font-bold text-blue-500/50 uppercase">VERIFIED_LOG</span>
-                        </div>
-                      </div>
-                      <motion.div
-                        animate={{ left: ["-100%", "200%"] }}
-                        transition={{ duration: 5, repeat: Infinity, ease: "linear" }}
-                        className="absolute top-0 bottom-0 w-20 bg-gradient-to-r from-transparent via-blue-500/5 to-transparent skew-x-12"
-                      />
-                    </motion.div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </motion.div>
-      </div>
+                      {section.items.map((item, iIdx) => (
+                        <motion.li
+                          key={iIdx}
+                          variants={itemVariants}
+                          className="flex items-start gap-2.5 text-sm text-gray-600 leading-relaxed"
+                        >
+                          <FaCheckCircle className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${cfg.color}`} />
+                          <span>{item}</span>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        </div>
+      </section>
 
-      {/* FOOTER DATA */}
-      <div className="hidden md:block absolute bottom-4 left-64 text-[9px] font-bold text-white/10 tracking-[0.3em] uppercase">
-        TOTAL_RECORDS_FOUND: {achievementsData.content.reduce((acc, s) => acc + s.items.length, 0)} | SYSTEM_STATUS: SECURE
-      </div>
+      {/* Stats Bar */}
+      <motion.section
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="px-6 pb-24"
+      >
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl py-8 px-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+              {stats.map((stat, idx) => (
+                <div key={idx} className="text-center">
+                  <p className="text-lg font-bold text-gray-900">{stat.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 }
