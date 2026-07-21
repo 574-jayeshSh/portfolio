@@ -58,7 +58,7 @@ export default function Achievements() {
       </nav>
 
       {/* Hero */}
-      <section className="pt-32 pb-16 px-6">
+      <section className="pt-20 md:pt-32 pb-10 md:pb-16 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto text-center">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -80,7 +80,7 @@ export default function Achievements() {
       </section>
 
       {/* Timeline */}
-      <section className="px-6 pb-24">
+      <section className="px-4 sm:px-6 pb-12 md:pb-24">
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical connecting line */}
           <div className="absolute left-[27px] md:left-[31px] top-0 bottom-0 w-px bg-gray-200" />
@@ -110,7 +110,7 @@ export default function Achievements() {
                   </div>
 
                   {/* Content card */}
-                  <div className="flex-1 bg-gray-50 rounded-xl p-6 border border-gray-100">
+                  <div className="flex-1 bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-100">
                     <h3 className="text-lg font-semibold text-gray-900 mb-4">{section.section}</h3>
                     <motion.ul
                       variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
@@ -144,10 +144,10 @@ export default function Achievements() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="px-6 pb-24"
+        className="px-4 sm:px-6 pb-12 md:pb-24"
       >
         <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl py-8 px-6">
+          <div className="bg-gray-50 border border-gray-100 rounded-2xl py-5 md:py-8 px-4 md:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {stats.map((stat, idx) => (
                 <div key={idx} className="text-center">

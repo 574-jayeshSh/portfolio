@@ -31,7 +31,7 @@ export default function Home() {
       </div>
 
       {/* MAIN - Centered like Google */}
-      <div className="flex-1 flex flex-col items-center justify-center px-4 -mt-16">
+      <div className="flex-1 flex flex-col items-center justify-center px-4 -mt-8 md:-mt-16">
         <Name />
         <div className="mt-8 w-full max-w-[584px]">
           <SearchBox />
@@ -48,7 +48,7 @@ export default function Home() {
             <button
               key={item.label}
               onClick={() => navigate(item.path)}
-              className="flex items-center gap-2 px-4 py-2 rounded-full border border-gray-200 text-sm text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm transition-all cursor-pointer font-inter"
+              className="flex items-center gap-2 px-4 py-2.5 rounded-full border border-gray-200 text-sm text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm transition-all cursor-pointer font-inter min-h-[44px]"
             >
               <span className="text-gray-400">{item.icon}</span>
               {item.label}

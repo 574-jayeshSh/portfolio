@@ -71,7 +71,7 @@ export default function Skills() {
       </div>
 
       {/* HERO */}
-      <section className="px-6 py-20 text-center">
+      <section className="px-6 py-12 md:py-20 text-center">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -142,7 +142,7 @@ export default function Skills() {
 
       {/* TECH STACK */}
       <section className="bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
           <motion.h2
             variants={fadeUp}
             initial="hidden"
@@ -179,7 +179,7 @@ export default function Skills() {
                       initial="hidden"
                       whileInView="visible"
                       viewport={{ once: true }}
-                      className="px-4 py-2 rounded-full text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-all cursor-default"
+                      className="px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-sm font-medium text-gray-700 bg-gray-50 border border-gray-200 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-700 transition-all cursor-default"
                     >
                       {skill}
                     </motion.span>

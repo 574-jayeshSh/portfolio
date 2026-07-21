@@ -15,6 +15,7 @@
         -moz-osx-font-smoothing: grayscale;
         color: #1a1a2e;
         background: #ffffff;
+        overflow-x: hidden;
     }
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }

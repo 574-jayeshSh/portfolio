@@ -61,7 +61,7 @@ export default function Projects() {
           >
             &larr; Home
           </button>
-          <div className="flex items-center gap-6">
+          <div className="hidden sm:flex items-center gap-6">
             <button
               onClick={() => navigate("/projects")}
               className="text-sm font-medium text-gray-900"
@@ -85,7 +85,7 @@ export default function Projects() {
       </nav>
 
       {/* Header */}
-      <section className="max-w-6xl mx-auto px-6 pt-20 pb-10">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 md:pt-20 pb-6 md:pb-10">
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -105,7 +105,7 @@ export default function Projects() {
       </section>
 
       {/* Language filter bar */}
-      <section className="max-w-6xl mx-auto px-6 pb-10">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-6 md:pb-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -133,7 +133,7 @@ export default function Projects() {
       </section>
 
       {/* Project grid */}
-      <section className="max-w-6xl mx-auto px-6 pb-24">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {Array.from({ length: 6 }).map((_, i) => (

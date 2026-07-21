@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 const Name = ({small = false}) => {
   return (
     <div className='flex flex-col items-center mt-7'>
-          <Link to="/" className={`${small ? "text-3xl" : "text-5xl md:text-6xl"} font-bold font-outfit mb-5 cursor-pointer select-none`}>
+          <Link to="/" className={`${small ? "text-3xl" : "text-4xl sm:text-5xl md:text-6xl"} font-bold font-outfit mb-5 cursor-pointer select-none`}>
             <span className='text-[#4285F4]'>J</span>
             <span className='text-[#EA4335]'>a</span>
             <span className='text-[#FBBC05]'>y</span>

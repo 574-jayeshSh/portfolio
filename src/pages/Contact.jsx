@@ -100,7 +100,7 @@ export default function Contact() {
       </section>
 
       {/* MAIN CONTENT */}
-      <section className="max-w-6xl mx-auto px-6 pb-24">
+      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
         <div className="grid lg:grid-cols-5 gap-10 lg:gap-12">
           {/* LEFT - FORM */}
           <motion.div
@@ -110,7 +110,7 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="bg-white rounded-2xl border border-gray-200 p-8 md:p-10 shadow-sm">
+            <div className="bg-white rounded-2xl border border-gray-200 p-5 sm:p-8 md:p-10 shadow-sm">
               <h2 className="text-xl font-bold text-gray-900 mb-6">Send a Message</h2>
               <ContactForm />
             </div>

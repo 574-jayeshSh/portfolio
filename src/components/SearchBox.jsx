@@ -42,7 +42,7 @@ export default function SearchBox({ isResults }) {
   // --------------------------------------
   return (
     <div ref={searchRef} className={`flex flex-col ${isResults ? "items-start" : "items-center mt-5"} w-full font-outfit`}>
-      <div className={`relative ${isResults ? "w-[600px]" : "w-[500px]"}`}>
+      <div className={`relative ${isResults ? "max-w-[600px] w-full" : "max-w-[500px] w-full"}`}>
         <input
           type="text"
           className={`border w-full h-11 p-4 rounded-full transition-all duration-300 

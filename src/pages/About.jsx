@@ -93,7 +93,7 @@ export default function About() {
       </nav>
 
       {/* HERO */}
-      <section className="max-w-4xl mx-auto px-6 pt-16 pb-20 text-center">
+      <section className="max-w-4xl mx-auto px-6 pt-10 pb-12 md:pt-16 md:pb-20 text-center">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -138,7 +138,7 @@ export default function About() {
 
       {/* ABOUT ME */}
       <section className="bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -148,7 +148,7 @@ export default function About() {
             <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
               About Me
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8">
               A developer who builds things
               <br className="hidden sm:block" /> from the ground up.
             </h2>
@@ -183,18 +183,18 @@ export default function About() {
       </section>
 
       {/* WHAT I DO */}
-      <section className="max-w-5xl mx-auto px-6 py-20">
+      <section className="max-w-5xl mx-auto px-6 py-10 md:py-20">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-14"
+          className="text-center mb-10 md:mb-14"
         >
           <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
             What I Do
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
             Things I spend my time on
           </h2>
         </motion.div>
@@ -224,18 +224,18 @@ export default function About() {
 
       {/* EDUCATION */}
       <section className="bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-20">
+        <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-14"
+            className="text-center mb-10 md:mb-14"
           >
             <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
               Education
             </p>
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
               My journey so far
             </h2>
           </motion.div>
