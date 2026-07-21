@@ -4,8 +4,6 @@ import { motion } from 'framer-motion';
 import SearchBox from '../components/SearchBox';
 import Name from '../components/Name';
 import Footer from '../components/Footer';
-import SideMenu from '../components/SideMenu';
-import MobileMenu from '../components/MobileMenu';
 import { FaUser, FaFolder, FaCode, FaTrophy, FaEnvelope } from 'react-icons/fa';
 
 const suggestions = [
@@ -20,11 +18,9 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="min-h-screen flex flex-col bg-white md:pl-16 lg:pl-56">
-      <SideMenu />
+    <div className="min-h-screen flex flex-col bg-white">
       {/* TOP NAV - Google style */}
       <div className="flex justify-end items-center px-4 md:px-6 py-3 text-[13px] text-gray-600 font-inter">
-        <MobileMenu />
         <a href="https://github.com/574-jayeshSh" target="_blank" rel="noopener noreferrer" className="hover:underline cursor-pointer mr-4 hidden sm:inline">GitHub</a>
         <a href="https://linkedin.com/in/jayesh-sharma-geca" target="_blank" rel="noopener noreferrer" className="hover:underline cursor-pointer mr-4 hidden sm:inline">LinkedIn</a>
         <a href="mailto:0574.jayesh.sharma@gmail.com" className="hover:underline cursor-pointer">Gmail</a>
