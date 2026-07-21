@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useGitHubEvents } from '../hooks/useGitHub';
-import { FaCodeCommit, FaCodeBranch, FaStar, FaCode } from 'react-icons/fa';
+import { FaUpload, FaCodeBranch, FaStar, FaCode } from 'react-icons/fa';
 import LoadingSkeleton from './LoadingSkeleton';
 
 function formatTime(dateStr) {
@@ -16,7 +16,7 @@ function formatTime(dateStr) {
 
 function getEventIcon(type) {
   switch (type) {
-    case 'PushEvent': return <FaCodeCommit className="text-green-500" />;
+    case 'PushEvent': return <FaUpload className="text-green-500" />;
     case 'CreateEvent': return <FaCodeBranch className="text-blue-500" />;
     case 'StarEvent': return <FaStar className="text-yellow-500" />;
     case 'ForkEvent': return <FaCode className="text-purple-500" />;
