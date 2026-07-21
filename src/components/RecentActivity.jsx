@@ -62,7 +62,7 @@ export default function RecentActivity() {
           initial={{ opacity: 0, x: -10 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: idx * 0.05 }}
-          className="flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-colors group"
+          className="flex items-start gap-3 p-3 rounded-xl hover:bg-[rgba(59,130,246,0.04)] transition-colors group"
         >
           <div className="mt-0.5 text-sm group-hover:scale-110 transition-transform">
             {getEventIcon(event.type)}

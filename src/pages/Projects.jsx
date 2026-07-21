@@ -39,9 +39,9 @@ export default function Projects() {
 
   if (loading) {
     return (
-      <div className="relative w-full h-screen overflow-hidden bg-[#020617] text-white flex items-center justify-center">
+      <div className="relative w-full h-screen overflow-hidden bg-[#0a0f1e] text-white flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-2 border-blue-500/20 border-t-blue-500 rounded-full animate-spin mx-auto mb-4" />
+          <div className="w-16 h-16 border-2 border-[rgba(59,130,246,0.1)] border-t-blue-500 rounded-full animate-spin mx-auto mb-4" />
           <p className="text-[10px] text-white/40 tracking-[0.3em] uppercase">Loading Mission Data...</p>
         </div>
       </div>
@@ -49,7 +49,7 @@ export default function Projects() {
   }
 
   return (
-    <div className="relative w-full min-h-screen md:h-screen overflow-auto md:overflow-hidden bg-[#020617] text-white font-outfit">
+    <div className="relative w-full min-h-screen md:h-screen overflow-auto md:overflow-hidden bg-[#0a0f1e] text-white font-outfit">
       {/* BACKGROUND */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
 
@@ -57,12 +57,12 @@ export default function Projects() {
       <div className="absolute top-0 left-0 w-full px-4 md:px-8 py-5 flex justify-between items-center z-50 border-b border-white/5 backdrop-blur-sm bg-black/20">
         <div className="flex items-center gap-4">
           <MobileMenu />
-          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-blue-500/5 cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
+          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-[rgba(59,130,246,0.03)] cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
             JS
           </div>
           <div>
             <h1 className="text-lg md:text-xl font-black tracking-tighter leading-tight uppercase">Mission_Archive</h1>
-            <p className="text-[9px] tracking-[0.3em] text-blue-500/60 font-bold uppercase">Deployment_Records_v4.2</p>
+            <p className="text-[9px] tracking-[0.3em] text-[rgba(59,130,246,0.5)] font-bold uppercase">Deployment_Records_v4.2</p>
           </div>
         </div>
         <div className="text-right">
@@ -81,7 +81,7 @@ export default function Projects() {
         <div className="relative w-full max-w-5xl h-auto md:h-[60vh] flex flex-col md:flex-row items-center justify-between px-4 md:px-20 gap-6">
           
           {/* PREV */}
-          <button onClick={prevProject} className="z-30 p-3 md:p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110 order-2 md:order-1">
+          <button onClick={prevProject} className="z-30 p-3 md:p-4 rounded-full border border-[rgba(59,130,246,0.1)] hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110 order-2 md:order-1">
             <motion.span animate={{ x: [-2, 2, -2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="text-sm">◀</motion.span>
           </button>
 
@@ -90,7 +90,7 @@ export default function Projects() {
             <AnimatePresence mode="wait">
               <motion.div key={currentIndex} initial={{ opacity: 0, y: 50, scale: 0.9 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: -50, scale: 1.1 }} transition={{ duration: 0.5 }} className="text-center w-full">
                 <div className="w-40 h-40 md:w-64 md:h-64 mx-auto mb-6 md:mb-8 relative">
-                  <div className="absolute inset-0 border-2 border-blue-500/20 rounded-3xl rotate-45 animate-pulse" />
+                  <div className="absolute inset-0 border-2 border-[rgba(59,130,246,0.1)] rounded-3xl rotate-45 animate-pulse" />
                   <div className="absolute inset-4 border border-blue-400/10 rounded-3xl -rotate-12" />
                   <div className="absolute inset-0 flex items-center justify-center text-6xl md:text-8xl" style={{ color: currentProject.color + '66' }}>
                     <FaFolderOpen />
@@ -121,7 +121,7 @@ export default function Projects() {
           </div>
 
           {/* NEXT */}
-          <button onClick={nextProject} className="z-30 p-3 md:p-4 rounded-full border border-blue-500/20 hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110 order-3">
+          <button onClick={nextProject} className="z-30 p-3 md:p-4 rounded-full border border-[rgba(59,130,246,0.1)] hover:bg-blue-500/10 transition-all text-blue-500 hover:scale-110 order-3">
             <motion.span animate={{ x: [2, -2, 2] }} transition={{ repeat: Infinity, duration: 1.5 }} className="text-sm">▶</motion.span>
           </button>
         </div>
@@ -131,7 +131,7 @@ export default function Projects() {
       <div className="absolute bottom-6 md:bottom-10 left-4 right-4 md:left-auto md:right-10 md:w-80 z-20 flex flex-col md:items-end gap-3">
         <div className="flex gap-3 w-full md:w-auto">
           <a href={currentProject?.github} target="_blank" rel="noopener noreferrer"
-            className="flex-1 md:flex-none px-6 py-3 md:py-4 rounded-xl bg-blue-500 text-white font-black tracking-[0.3em] uppercase text-[10px] hover:scale-[1.05] transition-all shadow-[0_0_30px_rgba(59,130,246,0.3)] flex items-center justify-center gap-2"
+            className="flex-1 md:flex-none px-6 py-3 md:py-4 rounded-xl bg-blue-500 text-white font-black tracking-[0.3em] uppercase text-[10px] hover:scale-[1.05] transition-all shadow-[0_0_20px_rgba(59,130,246,0.12)] flex items-center justify-center gap-2"
           >
             <FaExternalLinkAlt /> Launch_Mission
           </a>

@@ -28,13 +28,13 @@ const SideMenu = () => {
             {isActive && (
               <motion.div
                 layoutId="menu-indicator"
-                className="absolute left-[-24px] top-0 bottom-0 w-1 bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]"
+                className="absolute left-[-24px] top-0 bottom-0 w-1 bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.3)]"
               />
             )}
 
             {/* HOVER GLOW EFFECT */}
             <div className={`
-              absolute inset-0 bg-gradient-to-r from-blue-500/10 to-transparent 
+              absolute inset-0 bg-gradient-to-r from-[rgba(59,130,246,0.06)] to-transparent 
               opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10
               ${isActive ? "opacity-100" : ""}
             `} />
@@ -57,8 +57,8 @@ const SideMenu = () => {
 
             {/* BACKGROUND BAR (SUBTLE) */}
             <div className={`
-              absolute left-0 right-0 bottom-0 h-[1px] bg-white/5
-              ${isActive ? "bg-blue-500/20" : ""}
+              absolute left-0 right-0 bottom-0 h-[1px] bg-[rgba(59,130,246,0.04)]
+              ${isActive ? "bg-[rgba(59,130,246,0.1)]" : ""}
             `} />
           </button>
         );

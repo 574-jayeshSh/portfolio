@@ -17,7 +17,7 @@ export default function Achievements() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full min-h-screen md:h-screen overflow-auto md:overflow-hidden bg-[#020617] text-white font-outfit">
+    <div className="relative w-full min-h-screen md:h-screen overflow-auto md:overflow-hidden bg-[#0a0f1e] text-white font-outfit">
       {/* BACKGROUND GRID */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
 
@@ -25,12 +25,12 @@ export default function Achievements() {
       <div className="absolute top-0 left-0 w-full px-4 md:px-8 py-5 flex justify-between items-center z-50 border-b border-white/5 backdrop-blur-sm bg-black/20">
         <div className="flex items-center gap-4">
           <MobileMenu />
-          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-blue-500/5 cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
+          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-[rgba(59,130,246,0.03)] cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
             JS
           </div>
           <div>
             <h1 className="text-lg md:text-xl font-black tracking-tighter leading-tight uppercase">Hall_of_Fame</h1>
-            <p className="text-[9px] tracking-[0.3em] text-blue-500/60 font-bold uppercase">Achievement_Protocol_v2</p>
+            <p className="text-[9px] tracking-[0.3em] text-[rgba(59,130,246,0.5)] font-bold uppercase">Achievement_Protocol_v2</p>
           </div>
         </div>
         <div className="flex gap-4 items-center">
@@ -53,7 +53,7 @@ export default function Achievements() {
             {achievementsData.content.map((section, idx) => (
               <div key={idx} className="relative">
                 <h3 className="text-[10px] font-black mb-6 md:mb-8 text-blue-400 flex items-center gap-4 md:gap-6 tracking-[0.5em] uppercase">
-                  <span className="bg-blue-500/10 px-3 py-1 rounded border border-blue-500/20 flex items-center gap-2">
+                  <span className="bg-[rgba(59,130,246,0.06)] px-3 py-1 rounded border border-[rgba(59,130,246,0.1)] flex items-center gap-2">
                     <span className="text-blue-500">{sectionIcons[section.section] || <FaTrophy />}</span>
                     {section.section}
                   </span>
@@ -68,11 +68,11 @@ export default function Achievements() {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: idx * 0.1 + iIdx * 0.05 }}
                       whileHover={{ x: 10, backgroundColor: "rgba(59,130,246,0.03)" }}
-                      className="relative flex items-center gap-4 md:gap-8 p-4 md:p-6 rounded-2xl bg-black/40 border border-white/5 hover:border-blue-500/30 transition-all cursor-default group overflow-hidden"
+                      className="relative flex items-center gap-4 md:gap-8 p-4 md:p-6 rounded-2xl glass-card border border-[rgba(59,130,246,0.06)] hover:border-blue-500/30 transition-all cursor-default group overflow-hidden"
                     >
-                      <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-blue-500/5 flex items-center justify-center text-xl md:text-3xl text-blue-500/80 group-hover:scale-110 transition-transform flex-shrink-0">
+                      <div className="relative w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-[rgba(59,130,246,0.03)] flex items-center justify-center text-xl md:text-3xl text-blue-500/80 group-hover:scale-110 transition-transform flex-shrink-0">
                         <div className="absolute inset-0 rounded-2xl border border-blue-400/10 rotate-45 group-hover:rotate-90 transition-transform duration-700" />
-                        <div className="absolute inset-0 rounded-2xl border border-blue-500/20 -rotate-12 group-hover:-rotate-45 transition-transform duration-700" />
+                        <div className="absolute inset-0 rounded-2xl border border-[rgba(59,130,246,0.1)] -rotate-12 group-hover:-rotate-45 transition-transform duration-700" />
                         <FaTrophy />
                       </div>
                       <div className="flex-1 min-w-0">

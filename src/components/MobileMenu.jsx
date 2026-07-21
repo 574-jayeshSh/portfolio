@@ -40,10 +40,10 @@ export default function MobileMenu() {
               animate={{ x: 0 }}
               exit={{ x: '-100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed left-0 top-0 h-full w-64 bg-[#0a0f1e] border-r border-blue-500/10 z-[80] p-6"
+              className="fixed left-0 top-0 h-full w-64 bg-[#0a0f1e] border-r border-[rgba(59,130,246,0.08)] z-[80] p-6"
             >
               <div className="flex justify-between items-center mb-8">
-                <div className="w-8 h-8 border border-blue-500/50 rounded-lg flex items-center justify-center font-black text-blue-500 text-xs bg-blue-500/5">
+                <div className="w-8 h-8 border border-[rgba(59,130,246,0.25)] rounded-lg flex items-center justify-center font-black text-blue-500 text-xs bg-[rgba(59,130,246,0.03)]">
                   JS
                 </div>
                 <button onClick={() => setOpen(false)} className="text-white/40 hover:text-white transition-colors">
@@ -59,7 +59,7 @@ export default function MobileMenu() {
                       onClick={() => { navigate(item.path); setOpen(false); }}
                       className={`w-full text-left py-3 px-4 rounded-xl transition-all ${
                         isActive
-                          ? 'bg-blue-500/10 text-blue-500 border-l-2 border-blue-500'
+                          ? 'bg-[rgba(59,130,246,0.06)] text-blue-500 border-l-2 border-blue-500'
                           : 'text-white/40 hover:text-white hover:bg-white/5'
                       }`}
                     >

@@ -16,11 +16,11 @@ const Terminal = ({ text }) => {
   }, [index, text]);
 
   return (
-    <div className="w-full h-48 bg-black/80 border border-blue-500/30 rounded-xl p-4 font-mono text-[11px] leading-relaxed relative overflow-hidden backdrop-blur-md">
+    <div className="w-full h-48 bg-black/80 border border-[rgba(59,130,246,0.15)] rounded-xl p-4 font-mono text-[11px] leading-relaxed relative overflow-hidden backdrop-blur-md">
       {/* SCANLINE EFFECT */}
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] z-10 bg-[length:100%_2px,3px_100%]" />
       
-      <div className="flex items-center gap-2 mb-2 border-b border-blue-500/20 pb-2">
+      <div className="flex items-center gap-2 mb-2 border-b border-[rgba(59,130,246,0.1)] pb-2">
         <div className="w-2 h-2 rounded-full bg-red-500/50" />
         <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
         <div className="w-2 h-2 rounded-full bg-green-500/50" />

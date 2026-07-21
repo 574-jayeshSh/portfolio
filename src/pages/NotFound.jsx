@@ -6,7 +6,7 @@ export default function NotFound() {
   const navigate = useNavigate();
 
   return (
-    <div className="relative w-full h-screen overflow-hidden bg-[#020617] text-white flex items-center justify-center">
+    <div className="relative w-full h-screen overflow-hidden bg-[#0a0f1e] text-white flex items-center justify-center">
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-10" />
       
       <motion.div 
@@ -27,7 +27,7 @@ export default function NotFound() {
         <div className="flex gap-4 justify-center">
           <button
             onClick={() => navigate("/")}
-            className="px-8 py-3 rounded-xl bg-blue-500 text-white font-black text-xs tracking-[0.3em] uppercase hover:bg-blue-600 transition-all shadow-[0_0_30px_rgba(59,130,246,0.3)]"
+            className="px-8 py-3 rounded-xl bg-blue-500 text-white font-black text-xs tracking-[0.3em] uppercase hover:bg-blue-600 transition-all shadow-[0_0_15px_rgba(59,130,246,0.15)]"
           >
             Return_Home
           </button>

@@ -19,20 +19,20 @@ export default function Contact() {
   ];
 
   return (
-    <div className="relative w-full min-h-screen overflow-hidden bg-[#020617] text-white font-outfit">
+    <div className="relative w-full min-h-screen overflow-hidden bg-[#0a0f1e] text-white font-outfit">
       {/* BACKGROUND */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#1e293b_1px,transparent_1px),linear-gradient(to_bottom,#1e293b_1px,transparent_1px)] bg-[size:40px_40px] opacity-20" />
 
       {/* TOP BAR */}
-      <div className="absolute top-0 left-0 w-full px-4 md:px-8 py-5 flex justify-between items-center z-50 border-b border-white/5 backdrop-blur-sm bg-black/20">
+      <div className="absolute top-0 left-0 w-full px-4 md:px-8 py-5 flex justify-between items-center z-50 border-b border-[rgba(59,130,246,0.06)] backdrop-blur-sm bg-black/20">
         <div className="flex items-center gap-4">
           <MobileMenu />
-          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-blue-500/5 cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
+          <div onClick={() => navigate("/")} className="w-10 h-10 border border-blue-500/50 rounded-lg items-center justify-center font-black text-blue-500 bg-[rgba(59,130,246,0.03)] cursor-pointer hover:bg-blue-500/10 transition-all hidden md:flex">
             JS
           </div>
           <div>
             <h1 className="text-lg md:text-xl font-black tracking-tighter leading-tight uppercase">Comms_Hub</h1>
-            <p className="text-[9px] tracking-[0.3em] text-blue-500/60 font-bold uppercase">Satellite_Link_Active</p>
+            <p className="text-[9px] tracking-[0.3em] text-[rgba(59,130,246,0.5)] font-bold uppercase">Satellite_Link_Active</p>
           </div>
         </div>
         <div className="flex items-center gap-2">
@@ -51,7 +51,7 @@ export default function Contact() {
         <motion.div
           initial={{ scale: 0.95, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          className="max-w-4xl w-full mx-4 md:mx-20 p-6 md:p-12 lg:p-16 rounded-[2rem] bg-black/40 border border-blue-500/10 backdrop-blur-3xl relative overflow-hidden"
+          className="max-w-4xl w-full mx-4 md:mx-20 p-6 md:p-12 lg:p-16 rounded-[2rem] glass-card border border-[rgba(59,130,246,0.08)] backdrop-blur-3xl relative overflow-hidden"
         >
           {/* DECORATIVE CORNERS */}
           <div className="absolute top-6 left-6 w-12 h-12 border-t-2 border-l-2 border-blue-500/20 rounded-tl-2xl" />
@@ -70,7 +70,7 @@ export default function Contact() {
                 href={social.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-gradient-to-b ${social.color} border border-white/5 hover:border-blue-500/40 transition-all relative overflow-hidden`}
+                className={`group flex flex-col items-center p-4 md:p-6 rounded-2xl bg-gradient-to-b ${social.color} border border-[rgba(59,130,246,0.06)] hover:border-blue-500/40 transition-all relative overflow-hidden`}
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-500/10 to-transparent -translate-y-full group-hover:translate-y-full transition-transform duration-1000" />
                 <span className="text-2xl md:text-3xl mb-3 md:mb-4 text-blue-500/80 group-hover:scale-125 transition-transform duration-500">
@@ -96,7 +96,7 @@ export default function Contact() {
               href={resumePdf}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 px-12 py-4 rounded-xl bg-white/5 border border-white/10 text-white font-black tracking-[0.3em] uppercase text-xs hover:bg-white/10 hover:border-blue-500/30 transition-all"
+              className="flex items-center gap-2 px-12 py-4 rounded-xl bg-[rgba(59,130,246,0.04)] border border-[rgba(59,130,246,0.1)] text-white font-black tracking-[0.3em] uppercase text-xs hover:bg-[rgba(59,130,246,0.08)] hover:border-blue-500/30 transition-all"
             >
               <FaDownload /> Download Resume
             </a>
@@ -105,8 +105,8 @@ export default function Contact() {
       </div>
 
       {/* AMBIENT EFFECTS */}
-      <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-blue-500/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-blue-500/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 right-0 w-[40%] h-[40%] bg-[rgba(59,130,246,0.03)] blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-[40%] h-[40%] bg-[rgba(59,130,246,0.03)] blur-[120px] pointer-events-none" />
     </div>
   );
 }
