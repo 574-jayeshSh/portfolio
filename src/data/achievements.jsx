@@ -15,9 +15,30 @@ const achievements = {
     {
       section: "Academic & Certifications",
       items: [
-        "Completed Data Structures and Algorithms",
-        "Completed MERN Stack course",
-        "Strong academic background in Computer Science"
+        "B.Tech CSE @ GEC Ajmer",
+        "Completed Data Structures and Algorithms course",
+        "Completed MERN Stack development course",
+        "Machine Learning fundamentals"
+      ]
+    },
+    {
+      section: "Open Source & Projects",
+      items: [
+        "13 public repositories on GitHub",
+        "38 GitHub stars earned",
+        "Contributor to open source projects",
+        "Built Pathfinding Visualizer with 4 algorithms",
+        "Implemented custom Smart Pointer Library in C++"
+      ]
+    },
+    {
+      section: "Skills & Milestones",
+      items: [
+        "Proficient in C++, Python, JavaScript, TypeScript",
+        "MERN Stack Developer",
+        "Machine Learning Learner",
+        "Daily DSA practice in C++",
+        "Content Creator: Coding × Gym"
       ]
     }
   ]

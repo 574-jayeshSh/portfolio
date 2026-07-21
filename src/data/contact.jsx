@@ -5,10 +5,10 @@ const contact = {
 
   content: {
     email: "0574.jayesh.sharma@gmail.com",
-    linkedin: "https://linkedin.com/in/jayesh",
-    github: "https://github.com/574-jayesh",
+    linkedin: "https://linkedin.com/in/jayesh-sharma-574",
+    github: "https://github.com/574-jayeshSh",
     twitter: "https://twitter.com/574_jayesh",
-    resume: "/resume.pdf"
+    resume: "/src/assets/resume.pdf"
   }
 }
 

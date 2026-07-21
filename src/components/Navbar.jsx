@@ -1,17 +1,45 @@
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { RiApps2Line } from "react-icons/ri";
 import { useState } from 'react';
 
 const Navbar = () => {
 
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const quickLinks = [
+    { label: "About", path: "/pages/about" },
+    { label: "Skills", path: "/pages/skills" },
+    { label: "Projects", path: "/pages/projects" },
+    { label: "Achievements", path: "/pages/achievements" },
+    { label: "Contact", path: "/pages/contact" },
+  ];
+
   return (
     <div className='flex justify-end gap-5 p-3 pr-6 text-[13px] text-gray-700 items-center font-outfit'>
         <a href="mailto:0574.jayesh.sharma@gmail.com" className='hover:underline cursor-pointer'>Gmail</a>
         <Link to="/pages/projects" className='hover:underline cursor-pointer'>Images</Link>
         
-        <div className="p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer text-xl text-gray-600">
-          <RiApps2Line />
+        <div className="relative">
+          <div
+            onClick={() => setOpen(!open)}
+            className="p-2 rounded-full hover:bg-gray-100 transition-colors cursor-pointer text-xl text-gray-600"
+          >
+            <RiApps2Line />
+          </div>
+          {open && (
+            <div className="absolute right-0 top-12 w-48 bg-white border border-gray-200 rounded-2xl shadow-xl p-3 z-50">
+              {quickLinks.map((item) => (
+                <button
+                  key={item.path}
+                  onClick={() => { navigate(item.path); setOpen(false); }}
+                  className="w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 rounded-xl transition-colors cursor-pointer"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
         

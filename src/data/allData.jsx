@@ -1,4 +1,3 @@
-import React from 'react'
 import about from './about'
 import achievements from './achievements'
 import contact from './contact'
