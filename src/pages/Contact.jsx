@@ -3,8 +3,7 @@ import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import ContactForm from "../components/ContactForm";
 import contactData from "../data/contact";
-import resumePdf from "../assets/resume.pdf";
-import { FaEnvelope, FaLinkedinIn, FaGithub, FaTwitter, FaDownload, FaMapMarkerAlt } from "react-icons/fa";
+import { FaEnvelope, FaLinkedinIn, FaGithub, FaPhone, FaDownload, FaMapMarkerAlt } from "react-icons/fa";
 
 const cardVariants = {
   hidden: { opacity: 0, y: 30 },
@@ -24,6 +23,13 @@ const infoCards = [
     external: false,
   },
   {
+    label: "Phone",
+    value: contactData.content.phone,
+    icon: <FaPhone className="text-green-500" />,
+    href: `tel:${contactData.content.phone}`,
+    external: false,
+  },
+  {
     label: "GitHub",
     value: "574-jayeshSh",
     icon: <FaGithub className="text-gray-800" />,
@@ -32,23 +38,16 @@ const infoCards = [
   },
   {
     label: "LinkedIn",
-    value: "jayesh-sharma",
+    value: "jayesh-sharma-geca",
     icon: <FaLinkedinIn className="text-blue-600" />,
     href: contactData.content.linkedin,
     external: true,
   },
   {
-    label: "Twitter",
-    value: "@574_jayesh",
-    icon: <FaTwitter className="text-sky-500" />,
-    href: contactData.content.twitter,
-    external: true,
-  },
-  {
     label: "Resume",
-    value: "Download PDF",
+    value: "View / Download PDF",
     icon: <FaDownload className="text-blue-500" />,
-    href: resumePdf,
+    href: "/resume.pdf",
     external: true,
   },
 ];
@@ -84,10 +83,19 @@ export default function Contact() {
           <p className="text-lg text-gray-500 mb-6">
             Let&apos;s build something together
           </p>
-          <div className="flex items-center justify-center gap-1.5 text-sm text-gray-400">
+          <div className="flex items-center justify-center gap-1.5 text-sm text-gray-400 mb-6">
             <FaMapMarkerAlt className="text-gray-400" />
             <span>Ajmer, Rajasthan, India</span>
           </div>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white text-sm font-semibold rounded-full hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            <FaDownload className="text-xs" />
+            View Resume
+          </a>
         </motion.div>
       </section>
 

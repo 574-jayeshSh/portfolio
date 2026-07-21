@@ -185,7 +185,7 @@ export default function Projects() {
 
                 <div className="flex items-center gap-2">
                   <a
-                    href={repo.html_url}
+                    href={repo.html_url || repo.github}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-100"

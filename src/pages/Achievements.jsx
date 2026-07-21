@@ -4,17 +4,17 @@ import achievementsData from "../data/achievements";
 import { FaTrophy, FaMedal, FaCode, FaStar, FaGraduationCap, FaCheckCircle } from "react-icons/fa";
 
 const sectionIcons = {
-  "Hackathons & Competitions": { icon: FaTrophy, color: "text-amber-500", ring: "bg-amber-100", line: "bg-amber-400" },
-  "Academic & Certifications": { icon: FaGraduationCap, color: "text-blue-500", ring: "bg-blue-100", line: "bg-blue-400" },
-  "Open Source & Projects": { icon: FaCode, color: "text-emerald-500", ring: "bg-emerald-100", line: "bg-emerald-400" },
-  "Skills & Milestones": { icon: FaStar, color: "text-purple-500", ring: "bg-purple-100", line: "bg-purple-400" },
+  "Competitive Programming": { icon: FaCode, color: "text-amber-500", ring: "bg-amber-100", line: "bg-amber-400" },
+  "Technical Projects": { icon: FaStar, color: "text-blue-500", ring: "bg-blue-100", line: "bg-blue-400" },
+  "Education & Coursework": { icon: FaGraduationCap, color: "text-emerald-500", ring: "bg-emerald-100", line: "bg-emerald-400" },
+  "Technical Skills": { icon: FaTrophy, color: "text-purple-500", ring: "bg-purple-100", line: "bg-purple-400" },
 };
 
 const stats = [
-  { label: "13 Repos" },
-  { label: "38 Stars" },
-  { label: "250+ DSA Problems" },
-  { label: "5 Languages" },
+  { label: "200+ DSA Problems" },
+  { label: "Top 8.6% LeetCode" },
+  { label: "7.15 CGPA" },
+  { label: "4 Major Projects" },
 ];
 
 const containerVariants = {
@@ -93,7 +93,7 @@ export default function Achievements() {
             className="flex flex-col gap-12"
           >
             {sections.map((section, sIdx) => {
-              const cfg = sectionIcons[section.section] || sectionIcons["Skills & Milestones"];
+              const cfg = sectionIcons[section.section] || sectionIcons["Technical Skills"];
               const Icon = cfg.icon;
 
               return (

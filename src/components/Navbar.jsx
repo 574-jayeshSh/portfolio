@@ -53,12 +53,12 @@ const Navbar = () => {
             {open && (
               <div className="absolute right-0 top-14 w-72 bg-white border border-gray-200 rounded-3xl shadow-xl p-4">
                 <div className="flex flex-col items-center">
-                  <p className='text-gray-500 text-sm'>jayesh.sharma@example.com</p>
+                  <p className='text-gray-500 text-sm'>0574.jayesh.sharma@gmail.com</p>
                   <img src="https://ui-avatars.com/api/?name=Jayesh+Sharma&background=0D8ABC&color=fff" alt="Profile"
                   className='w-20 h-20 rounded-full mt-4' />
 
                   <h2 className='font-semibold text-lg mt-4'>Jayesh Sharma</h2>
-                  <p className='text-gray-500 text-sm flex items-center mt-4'>Full Stack | Software Engineer | System Programming</p>
+                  <p className='text-gray-500 text-sm flex items-center mt-4'>Systems Programming | Full Stack | DSA in C++</p>
 
                   
 

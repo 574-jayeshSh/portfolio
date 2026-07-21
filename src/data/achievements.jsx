@@ -1,44 +1,41 @@
 const achievements = {
-  title: "Achievements & Certifications",
+  title: "Achievements & Competitive Programming",
   url: "/pages/achievements",
-  description: "Academic achievements, hackathons, certifications, and problem-solving milestones.",
+  description: "Competitive programming achievements, problem-solving milestones, and GitHub portfolio.",
 
   content: [
     {
-      section: "Hackathons & Competitions",
+      section: "Competitive Programming",
       items: [
-        "Participated in Adobe Hackathon 2025",
-        "Secured Top 5 position in college coding contest",
-        "Solved 250+ problems on LeetCode"
+        "Solved 200+ DSA problems across LeetCode (Top 8.6%), GeeksforGeeks, and CodeStudio",
+        "Emphasis on arrays, trees, graphs, dynamic programming, and greedy algorithms",
+        "GitHub Portfolio: github.com/574-jayeshSh with all projects and documentation"
       ]
     },
     {
-      section: "Academic & Certifications",
+      section: "Technical Projects",
       items: [
-        "B.Tech CSE @ GEC Ajmer",
-        "Completed Data Structures and Algorithms course",
-        "Completed MERN Stack development course",
-        "Machine Learning fundamentals"
+        "Built a custom C++ compiler with multi-phase analysis (lexical, parsing, semantic, code gen)",
+        "Implemented a Unix-like shell with process management using Linux system calls",
+        "Developed an interactive algorithm visualization platform (BFS, DFS, Dijkstra)",
+        "Created a Sudoku solver with real-time backtracking visualization"
       ]
     },
     {
-      section: "Open Source & Projects",
+      section: "Education & Coursework",
       items: [
-        "13 public repositories on GitHub",
-        "38 GitHub stars earned",
-        "Contributor to open source projects",
-        "Built Pathfinding Visualizer with 4 algorithms",
-        "Implemented custom Smart Pointer Library in C++"
+        "B.Tech CSE @ Government Engineering College Ajmer — Bikaner Technical University",
+        "CGPA: 7.15 / 10.0 (Expected July 2027)",
+        "Relevant Coursework: DSA, Operating Systems, DBMS, OOP, Computer Networks, System Design"
       ]
     },
     {
-      section: "Skills & Milestones",
+      section: "Technical Skills",
       items: [
-        "Proficient in C++, Python, JavaScript, TypeScript",
-        "MERN Stack Developer",
-        "Machine Learning Learner",
-        "Daily DSA practice in C++",
-        "Content Creator: Coding × Gym"
+        "Languages: C++, C, Python, JavaScript, TypeScript, SQL, Bash",
+        "Full Stack: React.js, Node.js, Express.js, Socket.IO, TailwindCSS",
+        "Systems: Unix System Calls, Process Management, Linux/Unix CLI",
+        "Databases: MongoDB, MySQL, SQLite, Mongoose ODM"
       ]
     }
   ]

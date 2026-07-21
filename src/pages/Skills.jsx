@@ -3,7 +3,7 @@ import skillsData from "../data/skills";
 import { useGitHubRepos, getLanguageColor } from "../hooks/useGitHub";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import { FaCode, FaLayerGroup, FaWrench, FaMicrochip } from "react-icons/fa";
+import { FaCode, FaLayerGroup, FaWrench, FaMicrochip, FaDatabase } from "react-icons/fa";
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -16,9 +16,19 @@ const fadeUp = {
 
 const skillCategories = [
   {
+    title: "Languages",
+    icon: <FaCode />,
+    items: skillsData.content.languages,
+  },
+  {
     title: "Frameworks",
     icon: <FaLayerGroup />,
     items: skillsData.content.frameworks,
+  },
+  {
+    title: "Databases",
+    icon: <FaDatabase />,
+    items: skillsData.content.databases,
   },
   {
     title: "Tools",
@@ -29,11 +39,6 @@ const skillCategories = [
     title: "Core CS",
     icon: <FaMicrochip />,
     items: skillsData.content.coreConcepts,
-  },
-  {
-    title: "Soft Skills",
-    icon: <FaCode />,
-    items: skillsData.content.softSkills,
   },
 ];
 
@@ -148,7 +153,7 @@ export default function Skills() {
             Tech Stack
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {skillCategories.map((cat, ci) => (
               <motion.div
                 key={cat.title}

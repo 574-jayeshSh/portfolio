@@ -4,11 +4,12 @@ const skills = {
   description: "Technical skills of Jayesh Sharma including programming languages, frameworks, tools, and core CS subjects.",
 
   content: {
-    languages: ["C++", "Python", "JavaScript", "C", "TypeScript"],
-    frameworks: ["React", "Node.js", "Express", "Tailwind CSS"],
-    tools: ["Git", "GitHub", "VS Code", "Linux", "Vite"],
-    coreConcepts: ["DSA", "Operating Systems", "DBMS", "Computer Networks", "OOP", "Machine Learning"],
-    softSkills: ["Problem Solving", "Teamwork", "Consistency", "Content Creation"]
+    languages: ["C++", "C", "Python", "JavaScript (ES6+)", "TypeScript", "SQL", "Bash"],
+    frameworks: ["React.js", "Redux", "Zustand", "TailwindCSS", "Node.js", "Express.js", "Socket.IO", "Flask"],
+    tools: ["Git", "GitHub", "VS Code", "Postman", "GDB", "Makefile", "Linux/Unix CLI", "Docker"],
+    coreConcepts: ["Data Structures", "Algorithms", "Object-Oriented Design", "Operating Systems", "Database Systems", "Computer Networks", "System Design"],
+    databases: ["MongoDB", "MySQL", "SQLite", "Mongoose ODM"],
+    softSkills: ["Problem Solving", "System Design", "REST APIs", "Unix System Calls", "Process Management"]
   }
 }
 

@@ -7,11 +7,9 @@ import {
   FaEnvelope,
   FaLaptopCode,
   FaDatabase,
-  FaBrain,
-  FaPenFancy,
-  FaGraduationCap,
+  FaTerminal,
   FaCode,
-  FaDumbbell,
+  FaGraduationCap,
 } from "react-icons/fa";
 
 const navLinks = [
@@ -24,50 +22,44 @@ const navLinks = [
 const whatIDo = [
   {
     icon: <FaLaptopCode />,
-    title: "Web Development",
-    desc: "Building full-stack applications with the MERN stack. From REST APIs to responsive UIs, I enjoy bringing ideas to life on the web.",
+    title: "Full Stack Development",
+    desc: "Building full-stack applications with React, Node.js, Express, and MongoDB. From REST APIs to responsive UIs.",
+  },
+  {
+    icon: <FaTerminal />,
+    title: "Systems Programming",
+    desc: "Building compilers, shells, and low-level systems using C, C++, and Linux system calls. Understanding how things work under the hood.",
   },
   {
     icon: <FaDatabase />,
-    title: "DSA in C++",
-    desc: "Solving problems daily with C++. Strong grasp of data structures and algorithms keeps my problem-solving sharp.",
+    title: "DSA & Competitive Programming",
+    desc: "Solved 200+ problems on LeetCode (Top 8.6%). Strong foundation in algorithms, data structures, and problem-solving in C++.",
   },
   {
-    icon: <FaBrain />,
-    title: "Machine Learning",
-    desc: "Exploring ML concepts and building models. fascinated by how data can drive intelligent decisions and real-world solutions.",
-  },
-  {
-    icon: <FaPenFancy />,
-    title: "Content Creation",
-    desc: "Creating content that mixes Coding x Gym. Sharing the journey of a developer who believes in building both code and physique.",
+    icon: <FaCode />,
+    title: "Software Engineering",
+    desc: "Writing clean, maintainable code with strong CS fundamentals — OOP, OS concepts, DBMS, networks, and system design.",
   },
 ];
 
 const timeline = [
   {
-    year: "2022",
+    year: "2023",
     title: "Started B.Tech CSE",
-    desc: "Joined Government Engineering College, Ajmer to pursue Computer Science Engineering.",
+    desc: "Joined Government Engineering College, Ajmer — Bikaner Technical University to pursue Computer Science Engineering.",
     icon: <FaGraduationCap />,
   },
   {
-    year: "2023",
-    title: "MERN Stack Development",
-    desc: "Dove deep into MongoDB, Express, React, and Node.js. Built multiple full-stack projects.",
-    icon: <FaCode />,
-  },
-  {
     year: "2024",
-    title: "DSA & Competitive Coding",
-    desc: "Started solving problems daily in C++. Built strong foundations in algorithms and data structures.",
+    title: "Full Stack & Systems Programming",
+    desc: "Built full-stack apps with MERN stack and dived into systems programming — compilers, shells, and Linux internals.",
     icon: <FaCode />,
   },
   {
     year: "2025",
-    title: "ML & Content Creation",
-    desc: "Explored Machine Learning while building a personal brand around Coding x Gym lifestyle.",
-    icon: <FaBrain />,
+    title: "Competitive Programming & Open Source",
+    desc: "Solved 200+ DSA problems across LeetCode, GeeksforGeeks, and CodeStudio. Built and open-sourced multiple projects on GitHub.",
+    icon: <FaGithub />,
   },
 ];
 
@@ -117,11 +109,11 @@ export default function About() {
             Jayesh Sharma
           </h1>
           <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
-            B.Tech CSE @ GEC Ajmer &middot; MERN Stack Developer &middot; ML
-            Learner &middot; DSA in C++
+            B.Tech CSE @ GEC Ajmer &middot; Systems Programming &middot; Full
+            Stack Development &middot; DSA in C++
           </p>
           <p className="text-gray-400 text-sm mb-8">
-            Building code &amp; building physique — Coding x Gym
+            +91-8690617801 &middot; 0574.jayesh.sharma@gmail.com
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <a
@@ -157,8 +149,8 @@ export default function About() {
               About Me
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-8">
-              A developer who believes in
-              <br className="hidden sm:block" /> learning by building.
+              A developer who builds things
+              <br className="hidden sm:block" /> from the ground up.
             </h2>
           </motion.div>
           <motion.div
@@ -170,21 +162,21 @@ export default function About() {
           >
             <p>
               I'm Jayesh, a B.Tech Computer Science student at Government
-              Engineering College, Ajmer. I'm passionate about software
-              development and spend most of my time building projects, solving
-              problems, and exploring new technologies.
+              Engineering College, Ajmer (Bikaner Technical University) with a
+              CGPA of 7.15/10. I'm passionate about understanding how things
+              work — from compiler internals to operating system primitives.
             </p>
             <p>
-              My primary stack is MERN — I enjoy building full-stack applications
-              from scratch. Alongside web development, I practice DSA daily in C++
-              and have been exploring Machine Learning to understand how data and
-              algorithms can solve real-world problems.
+              I specialize in systems programming (C, C++, Linux) and full-stack
+              web development (React, Node.js, Express, MongoDB). I've solved
+              200+ DSA problems across LeetCode (Top 8.6%), GeeksforGeeks, and
+              CodeStudio, with emphasis on arrays, trees, graphs, DP, and greedy
+              algorithms.
             </p>
             <p>
-              Outside of code, I'm a gym enthusiast. I believe the discipline
-              from fitness translates directly into focused, consistent coding.
-              That's where the idea of Coding x Gym comes from — push code, pull
-              weight, repeat.
+              I enjoy building things from scratch — custom compilers, Unix
+              shells, algorithm visualizers. Every project teaches me something
+              new about how software really works.
             </p>
           </motion.div>
         </div>
@@ -230,7 +222,7 @@ export default function About() {
         </div>
       </section>
 
-      {/* TIMELINE */}
+      {/* EDUCATION */}
       <section className="bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-6 py-20">
           <motion.div
@@ -241,14 +233,13 @@ export default function About() {
             className="text-center mb-14"
           >
             <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
-              Journey
+              Education
             </p>
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900">
-              My timeline so far
+              My journey so far
             </h2>
           </motion.div>
           <div className="relative">
-            {/* vertical line */}
             <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gray-200" />
             <div className="space-y-10">
               {timeline.map((item, idx) => (
@@ -260,7 +251,6 @@ export default function About() {
                   transition={{ duration: 0.5, delay: idx * 0.1 }}
                   className="relative pl-14 sm:pl-16"
                 >
-                  {/* dot */}
                   <div className="absolute left-3 sm:left-4 top-1 w-5 h-5 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center">
                     <div className="w-2 h-2 rounded-full bg-gray-400" />
                   </div>
