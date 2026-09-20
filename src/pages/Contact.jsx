@@ -2,13 +2,14 @@ import { motion } from "framer-motion";
 import ContactForm from "../components/ContactForm";
 import contactData from "../data/contact";
 import PortfolioLayout, { Eyebrow } from "../components/PortfolioLayout";
-import { FaGithub, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
+import { FaGithub, FaLinkedinIn, FaEnvelope, FaPhone, FaMapMarkerAlt, FaCode } from "react-icons/fa";
 
 const cards = [
   { label: "Email", value: contactData.content.email, href: `mailto:${contactData.content.email}`, icon: <FaEnvelope /> },
   { label: "Phone", value: contactData.content.phone, href: `tel:${contactData.content.phone}`, icon: <FaPhone /> },
   { label: "GitHub", value: "574-jayeshSh", href: contactData.content.github, icon: <FaGithub /> },
   { label: "LinkedIn", value: "jayesh-sharma-geca", href: contactData.content.linkedin, icon: <FaLinkedinIn /> },
+  { label: "LeetCode", value: "DSA practice · C++", href: contactData.content.leetcode, icon: <FaCode /> },
 ];
 
 export default function Contact() {

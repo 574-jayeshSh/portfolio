@@ -34,7 +34,8 @@ const achievements = {
     {
       section: "Competitive Programming",
       items: [
-        "Solved 200+ DSA problems across LeetCode, GeeksforGeeks, and CodeStudio",
+        "Regular DSA practice on LeetCode, mostly in C++ (leetcode.com/u/HnrKrFzKBJ), plus GeeksforGeeks and CodeStudio",
+        "Strongest areas: arrays, hash tables, binary search, dynamic programming, DFS",
         "Emphasis on arrays, trees, graphs, dynamic programming, and greedy algorithms",
         "GitHub Portfolio: github.com/574-jayeshSh with all projects and documentation"
       ]

@@ -18,7 +18,8 @@ const about = {
         quotation platform: secure auth, CAD file upload workflows, automated quote calculation, cloud storage for
         large 3D models. Stack: Next.js, TypeScript, Express.js, PostgreSQL, MongoDB, Prisma ORM, Cloudinary.
 
-        Strong foundation in C/C++, OOP, DBMS, Operating Systems and Computer Networks. Solved 200+ DSA problems.
+        Strong foundation in C/C++, OOP, DBMS, Operating Systems and Computer Networks. Regular DSA practice
+        on LeetCode, mostly in C++, with focus on arrays, hash tables and dynamic programming.
         I enjoy building things from scratch — smart pointers, STL containers, shells, compilers — verified with
         AddressSanitizer and benchmarks, not just "it compiled."`
 }

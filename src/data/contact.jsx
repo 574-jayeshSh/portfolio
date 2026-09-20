@@ -8,6 +8,7 @@ const contact = {
     phone: "+91-8690617801",
     linkedin: "https://linkedin.com/in/jayesh-sharma-geca",
     github: "https://github.com/574-jayeshSh",
+    leetcode: "https://leetcode.com/u/HnrKrFzKBJ/",
     resume: "/resume.pdf"
   }
 }
