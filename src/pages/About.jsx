@@ -1,267 +1,173 @@
-import React from "react";
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
-import {
-  FaArrowLeft,
-  FaGithub,
-  FaEnvelope,
-  FaLaptopCode,
-  FaDatabase,
-  FaTerminal,
-  FaCode,
-  FaGraduationCap,
-} from "react-icons/fa";
+import PortfolioLayout, { Eyebrow } from "../components/PortfolioLayout";
 
-const navLinks = [
-  { label: "Home", path: "/" },
-  { label: "Projects", path: "/pages/projects" },
-  { label: "Skills", path: "/pages/skills" },
-  { label: "Contact", path: "/pages/contact" },
-];
-
-const whatIDo = [
-  {
-    icon: <FaLaptopCode />,
-    title: "Full Stack Development",
-    desc: "Building full-stack applications with React, Node.js, Express, and MongoDB. From REST APIs to responsive UIs.",
-  },
-  {
-    icon: <FaTerminal />,
-    title: "Systems Programming",
-    desc: "Building compilers, shells, and low-level systems using C, C++, and Linux system calls. Understanding how things work under the hood.",
-  },
-  {
-    icon: <FaDatabase />,
-    title: "DSA & Competitive Programming",
-    desc: "Solved 200+ problems on LeetCode (Top 8.6%). Strong foundation in algorithms, data structures, and problem-solving in C++.",
-  },
-  {
-    icon: <FaCode />,
-    title: "Software Engineering",
-    desc: "Writing clean, maintainable code with strong CS fundamentals — OOP, OS concepts, DBMS, networks, and system design.",
-  },
-];
-
-const timeline = [
+const journey = [
   {
     year: "2023",
     title: "Started B.Tech CSE",
-    desc: "Joined Government Engineering College, Ajmer — Bikaner Technical University to pursue Computer Science Engineering.",
-    icon: <FaGraduationCap />,
+    place: "GEC Ajmer",
+    desc: "Joined Government Engineering College Ajmer (BTU) for Computer Science. Fell in love with C, C++ and how computers really work.",
   },
   {
     year: "2024",
-    title: "Full Stack & Systems Programming",
-    desc: "Built full-stack apps with MERN stack and dived into systems programming — compilers, shells, and Linux internals.",
-    icon: <FaCode />,
+    title: "Full Stack & Systems",
+    place: "Self-taught + College",
+    desc: "Built MERN apps by day, compilers and Unix shells by night. Learned React, Node, Express, MongoDB alongside Linux system calls.",
   },
   {
     year: "2025",
-    title: "Competitive Programming & Open Source",
-    desc: "Solved 200+ DSA problems across LeetCode, GeeksforGeeks, and CodeStudio. Built and open-sourced multiple projects on GitHub.",
-    icon: <FaGithub />,
+    title: "DSA & Open Source",
+    place: "LeetCode · GitHub",
+    desc: "Solved 200+ DSA problems (Top 8.6% on LeetCode). Open-sourced compilers, shells and visualizers. CGPA 7.15/10.",
+  },
+  {
+    year: "2026",
+    title: "Full Stack Developer Intern",
+    place: "Yug3DAI · Remote",
+    desc: "Building a 3D-printing quotation platform with Next.js, TypeScript, PostgreSQL and Prisma — auth, CAD uploads, automated pricing, cloud storage. Shipped production-ready.",
   },
 ];
 
+const pitstops = [
+  { org: "Yug3DAI Private Limited", role: "Full Stack Developer Intern", date: "Jun 2026 — Present" },
+  { org: "GEC Ajmer", role: "B.Tech Computer Engineering", date: "2023 — 2027" },
+  { org: "LeetCode", role: "200+ Problems · Top 8.6%", date: "2024 — Present" },
+  { org: "GitHub", role: "Open Source Builder", date: "2024 — Present" },
+  { org: "MERN Stack", role: "Full Stack Developer", date: "2024 — Present" },
+];
+
 export default function About() {
-  const navigate = useNavigate();
-
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-inter">
-      {/* NAVBAR */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
-          >
-            <FaArrowLeft className="text-xs" />
-            <span>Home</span>
-          </button>
-          <div className="hidden sm:flex items-center gap-6">
-            {navLinks.map((link) => (
-              <button
-                key={link.label}
-                onClick={() => navigate(link.path)}
-                className="text-sm text-gray-500 hover:text-gray-900 transition-colors cursor-pointer"
-              >
-                {link.label}
-              </button>
-            ))}
-          </div>
-        </div>
-      </nav>
-
-      {/* HERO */}
-      <section className="max-w-4xl mx-auto px-6 pt-10 pb-12 md:pt-16 md:pb-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+    <PortfolioLayout footerNote="Thanks for reading my story!">
+      {/* Philosophy — like his "It's the details..." */}
+      <section className="max-w-4xl mx-auto px-6 pt-16 md:pt-24 pb-12 text-center">
+        <Eyebrow>Engineering Philosophy</Eyebrow>
+        <motion.h1
+          initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="flex flex-col items-center"
+          className="text-3xl sm:text-4xl md:text-6xl font-bold tracking-tight leading-[1.1]"
+        >
+          &ldquo;Build from scratch,
+          <br />
+          understand every layer.&rdquo;
+        </motion.h1>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.3 }}
+          className="mt-8 flex flex-col items-center"
         >
           <img
             src="https://avatars.githubusercontent.com/u/202250730?v=4"
             alt="Jayesh Sharma"
-            className="w-28 h-28 rounded-full object-cover shadow-lg border-4 border-gray-100 mb-6"
+            className="w-20 h-20 rounded-full object-cover border border-gray-200 mb-4"
           />
-          <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-3">
-            Jayesh Sharma
-          </h1>
-          <p className="text-gray-500 text-base sm:text-lg max-w-xl mb-2">
-            B.Tech CSE @ GEC Ajmer &middot; Systems Programming &middot; Full
-            Stack Development &middot; DSA in C++
+          <p className="text-sm text-gray-500">
+            Hey, I&apos;m Jayesh! — Full Stack Developer Intern @ Yug3DAI
           </p>
-          <p className="text-gray-400 text-sm mb-8">
-            +91-8690617801 &middot; 0574.jayesh.sharma@gmail.com
-          </p>
-          <div className="flex flex-wrap justify-center gap-3">
-            <a
-              href="mailto:0574.jayesh.sharma@gmail.com"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-gray-900 text-white text-sm font-medium rounded-full hover:bg-gray-800 transition-colors"
-            >
-              <FaEnvelope className="text-xs" />
-              Get in Touch
-            </a>
-            <a
-              href="https://github.com/574-jayeshSh"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 border border-gray-200 text-sm font-medium text-gray-700 rounded-full hover:bg-gray-50 transition-colors"
-            >
-              <FaGithub className="text-xs" />
-              GitHub
-            </a>
-          </div>
         </motion.div>
       </section>
 
-      {/* ABOUT ME */}
-      <section className="bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-          >
-            <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
-              About Me
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-              A developer who builds things
-              <br className="hidden sm:block" /> from the ground up.
-            </h2>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="space-y-5 text-gray-600 leading-relaxed text-base sm:text-lg max-w-3xl"
-          >
-            <p>
-              I'm Jayesh, a B.Tech Computer Science student at Government
-              Engineering College, Ajmer (Bikaner Technical University) with a
-              CGPA of 7.15/10. I'm passionate about understanding how things
-              work — from compiler internals to operating system primitives.
-            </p>
-            <p>
-              I specialize in systems programming (C, C++, Linux) and full-stack
-              web development (React, Node.js, Express, MongoDB). I've solved
-              200+ DSA problems across LeetCode (Top 8.6%), GeeksforGeeks, and
-              CodeStudio, with emphasis on arrays, trees, graphs, DP, and greedy
-              algorithms.
-            </p>
-            <p>
-              I enjoy building things from scratch — custom compilers, Unix
-              shells, algorithm visualizers. Every project teaches me something
-              new about how software really works.
-            </p>
-          </motion.div>
+      {/* Where I am from */}
+      <section className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+        <Eyebrow>Where I am from</Eyebrow>
+        <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+          Born and raised in Ajmer, Rajasthan.
+        </h2>
+        <div className="space-y-5 text-gray-600 leading-relaxed text-base md:text-lg">
+          <p>
+            Growing up I was the curious kid — taking things apart, sketching,
+            playing cricket, and spending way too much time on the family
+            computer wondering how it all worked.
+          </p>
+          <p>
+            Like many Indian middle-class kids, I was expected to follow the
+            engineering path. I got into Government Engineering College Ajmer
+            in 2023 — and to my surprise, my love for building software sparked
+            in the first semester itself.
+          </p>
+          <p>
+            Since childhood I&apos;ve had a liking for{" "}
+            <span className="text-gray-900 font-medium">chai</span>. So if you
+            ever want to grab my attention, a simple tea invitation will do
+            the trick.
+          </p>
         </div>
       </section>
 
-      {/* WHAT I DO */}
-      <section className="max-w-5xl mx-auto px-6 py-10 md:py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10 md:mb-14"
-        >
-          <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
-            What I Do
-          </p>
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-            Things I spend my time on
+      {/* How I started */}
+      <section className="bg-gray-50 border-y border-gray-100">
+        <div className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+          <Eyebrow>How I started building</Eyebrow>
+          <h2 className="text-2xl md:text-3xl font-bold tracking-tight mb-6">
+            From &ldquo;Hello World&rdquo; to compilers.
           </h2>
-        </motion.div>
-        <div className="grid sm:grid-cols-2 gap-5">
-          {whatIDo.map((item, idx) => (
-            <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="p-7 rounded-2xl bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="w-11 h-11 rounded-xl bg-gray-100 flex items-center justify-center text-gray-700 text-lg mb-5">
-                {item.icon}
-              </div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                {item.title}
-              </h3>
-              <p className="text-gray-500 text-sm leading-relaxed">
-                {item.desc}
-              </p>
-            </motion.div>
-          ))}
+          <div className="space-y-5 text-gray-600 leading-relaxed text-base md:text-lg">
+            <p>
+              It all began with C++ and DSA. One problem a day turned into
+              200+ problems across LeetCode, GeeksforGeeks and CodeStudio —
+              arrays, trees, graphs, DP and greedy.
+            </p>
+            <p>
+              But I didn&apos;t want to just solve problems. I wanted to know
+              how things work under the hood. So I built a custom C++ compiler
+              with lexical analysis, parsing and code generation — and then a
+              Unix-like shell with fork, exec and process management.
+            </p>
+            <p>
+              When I needed a break from systems, I built for the web — a
+              pathfinding visualizer, a Sudoku solver with backtracking
+              animation, full-stack MERN apps with auth, REST APIs and
+              real-time features.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* EDUCATION */}
+      {/* Spare time */}
+      <section className="max-w-3xl mx-auto px-6 py-12 md:py-16">
+        <Eyebrow>In my spare time</Eyebrow>
+        <p className="text-gray-600 leading-relaxed text-base md:text-lg">
+          You can catch me experimenting with Linux ricing, reading OS
+          internals, or visualising algorithms. Apart from that, you&apos;ll
+          often find me playing cricket, travelling across Rajasthan, hitting
+          the gym, and staying up to date with the latest in AI and dev
+          tools.
+        </p>
+        <p className="mt-8 text-xl md:text-2xl font-bold tracking-tight">
+          Thank you for listening to my story!
+        </p>
+      </section>
+
+      {/* Journey timeline */}
       <section className="bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 py-10 md:py-20">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-10 md:mb-14"
-          >
-            <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4">
-              Education
-            </p>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900">
-              My journey so far
+        <div className="max-w-4xl mx-auto px-6 py-12 md:py-20">
+          <div className="text-center mb-12">
+            <Eyebrow>My journey so far</Eyebrow>
+            <h2 className="text-2xl md:text-4xl font-bold tracking-tight">
+              Where it all started
             </h2>
-          </motion.div>
+          </div>
           <div className="relative">
-            <div className="absolute left-5 sm:left-6 top-0 bottom-0 w-px bg-gray-200" />
+            <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-200" />
             <div className="space-y-10">
-              {timeline.map((item, idx) => (
+              {journey.map((j, i) => (
                 <motion.div
-                  key={item.year}
+                  key={j.year}
                   initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-60px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.1 }}
-                  className="relative pl-14 sm:pl-16"
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="relative pl-12"
                 >
-                  <div className="absolute left-3 sm:left-4 top-1 w-5 h-5 rounded-full bg-white border-2 border-gray-300 flex items-center justify-center">
-                    <div className="w-2 h-2 rounded-full bg-gray-400" />
-                  </div>
-                  <span className="inline-block text-xs font-bold tracking-widest text-gray-400 uppercase mb-1">
-                    {item.year}
-                  </span>
-                  <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed max-w-lg">
-                    {item.desc}
+                  <div className="absolute left-2.5 top-1.5 w-3 h-3 rounded-full bg-gray-900" />
+                  <p className="text-xs font-bold tracking-widest text-gray-400 uppercase">
+                    {j.year} · {j.place}
+                  </p>
+                  <h3 className="text-lg font-semibold mt-1">{j.title}</h3>
+                  <p className="text-sm text-gray-500 leading-relaxed mt-1 max-w-xl">
+                    {j.desc}
                   </p>
                 </motion.div>
               ))}
@@ -270,10 +176,27 @@ export default function About() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <footer className="max-w-5xl mx-auto px-6 py-12 text-center text-gray-400 text-sm">
-        <p>&copy; {new Date().getFullYear()} Jayesh Sharma. All rights reserved.</p>
-      </footer>
-    </div>
+      {/* Professional pitstops — like his Work Experience */}
+      <section className="max-w-4xl mx-auto px-6 py-12 md:py-20">
+        <Eyebrow>Professional pitstops</Eyebrow>
+        <h2 className="text-2xl md:text-4xl font-bold tracking-tight mb-10">
+          Work &amp; Milestones
+        </h2>
+        <div className="divide-y divide-gray-100 border-y border-gray-100">
+          {pitstops.map((p) => (
+            <div
+              key={p.org}
+              className="py-5 flex flex-col sm:flex-row sm:items-center justify-between gap-1"
+            >
+              <div>
+                <p className="font-semibold">{p.org}</p>
+                <p className="text-sm text-gray-500">{p.role}</p>
+              </div>
+              <p className="text-sm text-gray-400 shrink-0">{p.date}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </PortfolioLayout>
   );
 }

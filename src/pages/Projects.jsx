@@ -1,221 +1,164 @@
-import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import projectsData from "../data/projects";
-import { useGitHubRepos, getLanguageColor } from "../hooks/useGitHub";
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-  FaStar,
-  FaCodeBranch,
-} from "react-icons/fa";
+import { useGitHubRepos } from "../hooks/useGitHub";
+import PortfolioLayout, { Eyebrow } from "../components/PortfolioLayout";
+import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import imgCompiler from "../assets/project-1.jpeg";
+import imgShell from "../assets/project-2.jpeg";
+import imgPathfinding from "../assets/about.png";
+import imgSudoku from "../assets/contact-image.jpeg";
 
-const EXCLUDED_REPOS = ["574-jayeshSh", "portfolio"];
+import imgSmartPtr from "../assets/brush.png";
+const imgVector = "/model.png";
 
-function SkeletonCard() {
-  return (
-    <div className="bg-white rounded-2xl border border-gray-100 p-6 animate-pulse">
-      <div className="h-5 bg-gray-200 rounded w-2/3 mb-4" />
-      <div className="space-y-2 mb-6">
-        <div className="h-3 bg-gray-100 rounded w-full" />
-        <div className="h-3 bg-gray-100 rounded w-4/5" />
-      </div>
-      <div className="flex items-center gap-3 mb-6">
-        <div className="h-6 bg-gray-100 rounded-full w-20" />
-      </div>
-      <div className="flex items-center gap-4 mb-6">
-        <div className="h-3 bg-gray-100 rounded w-14" />
-        <div className="h-3 bg-gray-100 rounded w-14" />
-      </div>
-      <div className="flex gap-3">
-        <div className="h-8 bg-gray-100 rounded w-24" />
-        <div className="h-8 bg-gray-100 rounded w-20" />
-      </div>
-    </div>
-  );
+// Cover pictures keyed by GitHub repo name + fallback project name.
+const PROJECT_IMAGES = {
+  "STL-Vector-from-Scratch": imgVector,
+  "STL Vector from Scratch (C++)": imgVector,
+  "smart-pointer-library": imgSmartPtr,
+  "Smart Pointer Library (C++)": imgSmartPtr,
+  compiler_cpp: imgCompiler,
+  "Custom C++ Compiler with Multi-Phase Analysis": imgCompiler,
+  mini_shell: imgShell,
+  "Unix-Like Shell with Process Management": imgShell,
+  "pathfinding-visualizer": imgPathfinding,
+  "Interactive Algorithm Visualization Platform": imgPathfinding,
+  sudoku_solver: imgSudoku,
+  "Sudoku Solver with Backtracking Visualization": imgSudoku,
+};
+
+function getProjectImage(repo) {
+  return repo.image || PROJECT_IMAGES[repo.name];
 }
 
+const meta = [
+  { year: "2026", org: "systems · c++" },
+  { year: "2026", org: "systems · c++" },
+  { year: "2025", org: "systems · c++" },
+  { year: "2025", org: "systems · c" },
+  { year: "2024", org: "web · react" },
+  { year: "2024", org: "web · react" },
+];
+
 export default function Projects() {
-  const navigate = useNavigate();
   const { repos, loading } = useGitHubRepos();
+  const fallback = projectsData.content.map((p, i) => ({
+    name: p.name,
+    description: p.description,
+    language: p.language,
+    html_url: p.github,
+    homepage: "",
+    image: p.image,
+    stargazers_count: p.stars,
+    forks_count: p.forks,
+    ...meta[i % meta.length],
+  }));
 
-  const filteredRepos = (repos.length ? repos : projectsData.content).filter(
-    (repo) => !EXCLUDED_REPOS.includes(repo.name)
-  );
-
-  const languages = filteredRepos.reduce((acc, repo) => {
-    const lang = repo.language;
-    if (lang) {
-      acc[lang] = (acc[lang] || 0) + 1;
-    }
-    return acc;
-  }, {});
+  const list = (repos.length ? repos : fallback)
+    .filter((r) => !["574-jayeshSh", "portfolio"].includes(r.name))
+    .slice(0, 12)
+    .map((r, i) => ({
+      ...r,
+      year: r.year || meta[i % meta.length]?.year || "2024",
+      org: r.org || r.language?.toLowerCase() || "personal project",
+    }));
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Nav */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
-          >
-            &larr; Home
-          </button>
-          <div className="hidden sm:flex items-center gap-6">
-            <button
-              onClick={() => navigate("/projects")}
-              className="text-sm font-medium text-gray-900"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => navigate("/about")}
-              className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-            >
-              About
-            </button>
-            <button
-              onClick={() => navigate("/contact")}
-              className="text-sm font-medium text-gray-500 hover:text-gray-900 transition-colors"
-            >
-              Contact
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* Header */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pt-12 md:pt-20 pb-6 md:pb-10">
+    <PortfolioLayout footerNote="More on GitHub">
+      <section className="max-w-5xl mx-auto px-6 pt-16 md:pt-24 pb-8 text-center">
+        <Eyebrow>Curated collection</Eyebrow>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-4xl md:text-5xl font-bold text-gray-900 mb-3"
+          className="text-4xl md:text-6xl font-bold tracking-tight"
         >
-          Projects
+          Work
         </motion.h1>
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-lg text-gray-500"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.15 }}
+          className="mt-4 text-gray-500 text-base md:text-lg"
         >
-          Things I&apos;ve built
+          A curated collection showcasing all my builds — systems, web &amp;
+          algorithms.
         </motion.p>
       </section>
 
-      {/* Language filter bar */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-6 md:pb-10">
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.2 }}
-          className="flex flex-wrap gap-2"
-        >
-          <span className="px-3 py-1.5 text-xs font-medium rounded-full bg-gray-900 text-white">
-            All ({filteredRepos.length})
-          </span>
-          {Object.entries(languages)
-            .sort((a, b) => b[1] - a[1])
-            .map(([lang, count]) => (
-              <span
-                key={lang}
-                className="px-3 py-1.5 text-xs font-medium rounded-full bg-gray-100 text-gray-600 flex items-center gap-1.5"
-              >
-                <span
-                  className="w-2 h-2 rounded-full"
-                  style={{ backgroundColor: getLanguageColor(lang) }}
-                />
-                {lang} ({count})
-              </span>
-            ))}
-        </motion.div>
-      </section>
-
-      {/* Project grid */}
-      <section className="max-w-6xl mx-auto px-4 sm:px-6 pb-16 md:pb-24">
-        {loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {Array.from({ length: 6 }).map((_, i) => (
-              <SkeletonCard key={i} />
+      <section className="max-w-5xl mx-auto px-6 pb-20">
+        {loading && (
+          <div className="grid md:grid-cols-2 gap-5">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="rounded-2xl border border-gray-100 p-7 animate-pulse">
+                <div className="h-40 bg-gray-100 rounded-xl w-full mb-4" />
+                <div className="h-3 bg-gray-100 rounded w-1/3 mb-4" />
+                <div className="h-6 bg-gray-100 rounded w-2/3 mb-3" />
+                <div className="h-3 bg-gray-50 rounded w-full" />
+              </div>
             ))}
           </div>
-        ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredRepos.map((repo, i) => (
-              <motion.div
+        )}
+
+        {!loading && (
+          <div className="grid md:grid-cols-2 gap-5">
+            {list.map((repo, i) => (
+              <motion.a
                 key={repo.name}
-                initial={{ opacity: 0, y: 30 }}
+                href={repo.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-50px" }}
-                transition={{ duration: 0.4, delay: i * 0.05 }}
-                className="group bg-white rounded-2xl border border-gray-100 p-6 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300"
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.45, delay: (i % 2) * 0.08 }}
+                className="group rounded-2xl border border-gray-100 bg-white p-7 hover:border-gray-300 hover:shadow-lg hover:-translate-y-1 transition-all block"
               >
-                <h3 className="text-base font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors truncate">
-                  {repo.name}
+                <p className="text-xs text-gray-400 mb-3">
+                  <span className="font-semibold text-gray-500">{repo.year}</span>
+                  {"  ·  "}
+                  <span className="lowercase">{repo.org}</span>
+                </p>
+                {getProjectImage(repo) ? (
+                  <img
+                    src={getProjectImage(repo)}
+                    alt={repo.name}
+                    loading="lazy"
+                    className="w-full h-44 object-cover rounded-xl mb-4 border border-gray-100"
+                  />
+                ) : (
+                  <div className="w-full h-44 rounded-xl mb-4 bg-gradient-to-br from-gray-100 to-gray-200 border border-gray-100" />
+                )}
+                <h3 className="text-xl font-bold tracking-tight leading-snug mb-2 group-hover:opacity-70 transition-opacity capitalize">
+                  {repo.name.replace(/[-_]/g, " ")}
                 </h3>
-                <p className="text-sm text-gray-500 leading-relaxed mb-5 line-clamp-2 min-h-[2.5rem]">
+                <p className="text-sm text-gray-500 leading-relaxed line-clamp-2 mb-5">
                   {repo.description || "No description available."}
                 </p>
-
-                {repo.language && (
-                  <div className="mb-4">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium rounded-full bg-gray-50 text-gray-700 border border-gray-100">
-                      <span
-                        className="w-2 h-2 rounded-full"
-                        style={{
-                          backgroundColor: getLanguageColor(repo.language),
-                        }}
-                      />
+                <div className="flex items-center gap-4 text-xs text-gray-400">
+                  <span className="inline-flex items-center gap-1.5 font-medium text-gray-600">
+                    <FaGithub className="w-3.5 h-3.5" /> Code
+                  </span>
+                  {repo.homepage && (
+                    <span className="inline-flex items-center gap-1.5 font-medium text-gray-600">
+                      <FaExternalLinkAlt className="w-3 h-3" /> Live
+                    </span>
+                  )}
+                  {repo.language && (
+                    <span className="ml-auto px-2.5 py-1 rounded-full bg-gray-50 border border-gray-100 text-gray-600">
                       {repo.language}
                     </span>
-                  </div>
-                )}
-
-                <div className="flex items-center gap-4 text-xs text-gray-400 mb-5">
-                  <span className="flex items-center gap-1">
-                    <FaStar className="w-3.5 h-3.5" />
-                    {repo.stargazers_count}
-                  </span>
-                  <span className="flex items-center gap-1">
-                    <FaCodeBranch className="w-3.5 h-3.5" />
-                    {repo.forks_count}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <a
-                    href={repo.html_url || repo.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-100"
-                  >
-                    <FaGithub className="w-3.5 h-3.5" />
-                    Code
-                  </a>
-                  {repo.homepage && (
-                    <a
-                      href={repo.homepage}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-gray-700 bg-gray-50 hover:bg-gray-100 rounded-lg transition-colors border border-gray-100"
-                    >
-                      <FaExternalLinkAlt className="w-3.5 h-3.5" />
-                      Live
-                    </a>
                   )}
                 </div>
-              </motion.div>
+              </motion.a>
             ))}
           </div>
         )}
 
-        {!loading && filteredRepos.length === 0 && (
-          <div className="text-center py-20">
-            <p className="text-gray-400 text-sm">No projects found.</p>
-          </div>
-        )}
+        <p className="text-center text-sm text-gray-400 mt-12">
+          + {projectsData.content.length} featured systems builds documented in detail on GitHub.
+        </p>
       </section>
-    </div>
+    </PortfolioLayout>
   );
 }

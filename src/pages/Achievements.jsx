@@ -1,163 +1,71 @@
 import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
 import achievementsData from "../data/achievements";
-import { FaTrophy, FaMedal, FaCode, FaStar, FaGraduationCap, FaCheckCircle } from "react-icons/fa";
-
-const sectionIcons = {
-  "Competitive Programming": { icon: FaCode, color: "text-amber-500", ring: "bg-amber-100", line: "bg-amber-400" },
-  "Technical Projects": { icon: FaStar, color: "text-blue-500", ring: "bg-blue-100", line: "bg-blue-400" },
-  "Education & Coursework": { icon: FaGraduationCap, color: "text-emerald-500", ring: "bg-emerald-100", line: "bg-emerald-400" },
-  "Technical Skills": { icon: FaTrophy, color: "text-purple-500", ring: "bg-purple-100", line: "bg-purple-400" },
-};
+import PortfolioLayout, { Eyebrow } from "../components/PortfolioLayout";
 
 const stats = [
-  { label: "200+ DSA Problems" },
-  { label: "Top 8.6% LeetCode" },
-  { label: "7.15 CGPA" },
-  { label: "4 Major Projects" },
+  { value: "200+", label: "DSA Problems" },
+  { value: "Yug3DAI", label: "SDE Intern" },
+  { value: "7.15", label: "CGPA / 10" },
+  { value: "6+", label: "Major Builds" },
 ];
 
-const containerVariants = {
-  hidden: {},
-  visible: { transition: { staggerChildren: 0.2 } },
-};
-
-const nodeVariants = {
-  hidden: { opacity: 0, x: -30 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, x: -15 },
-  visible: { opacity: 1, x: 0, transition: { duration: 0.35, ease: "easeOut" } },
-};
-
 export default function Achievements() {
-  const navigate = useNavigate();
   const sections = achievementsData?.content || [];
 
   return (
-    <div className="min-h-screen bg-white">
-      {/* Top Nav */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <button
-            onClick={() => navigate("/")}
-            className="flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors cursor-pointer"
-          >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-            Back to Home
-          </button>
-          <div className="flex items-center gap-2 text-amber-500">
-            <FaTrophy className="w-4 h-4" />
-            <span className="text-sm font-semibold tracking-wide">ACHIEVEMENTS</span>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="pt-20 md:pt-32 pb-10 md:pb-16 px-4 sm:px-6">
-        <div className="max-w-5xl mx-auto text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl font-bold text-gray-900 tracking-tight"
-          >
-            Achievements
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15 }}
-            className="mt-4 text-lg text-gray-500"
-          >
-            Milestones and accomplishments
-          </motion.p>
-        </div>
+    <PortfolioLayout footerNote="Onwards and upwards">
+      <section className="max-w-4xl mx-auto px-6 pt-16 md:pt-24 pb-10 text-center">
+        <Eyebrow>Milestones</Eyebrow>
+        <motion.h1
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl md:text-6xl font-bold tracking-tight"
+        >
+          Achievements
+        </motion.h1>
+        <p className="mt-4 text-gray-500 text-base md:text-lg">
+          Milestones and accomplishments so far.
+        </p>
       </section>
 
-      {/* Timeline */}
-      <section className="px-4 sm:px-6 pb-12 md:pb-24">
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical connecting line */}
-          <div className="absolute left-[27px] md:left-[31px] top-0 bottom-0 w-px bg-gray-200" />
-
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-50px" }}
-            className="flex flex-col gap-12"
-          >
-            {sections.map((section, sIdx) => {
-              const cfg = sectionIcons[section.section] || sectionIcons["Technical Skills"];
-              const Icon = cfg.icon;
-
-              return (
-                <motion.div
-                  key={sIdx}
-                  variants={nodeVariants}
-                  className="relative flex gap-6 md:gap-8"
-                >
-                  {/* Circle node */}
-                  <div className="relative z-10 flex-shrink-0">
-                    <div className={`w-14 h-14 rounded-full ${cfg.ring} flex items-center justify-center ring-4 ring-white`}>
-                      <Icon className={`w-5 h-5 ${cfg.color}`} />
-                    </div>
-                  </div>
-
-                  {/* Content card */}
-                  <div className="flex-1 bg-gray-50 rounded-xl p-4 sm:p-6 border border-gray-100">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-4">{section.section}</h3>
-                    <motion.ul
-                      variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.07, delayChildren: 0.1 } } }}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true }}
-                      className="space-y-2.5"
-                    >
-                      {section.items.map((item, iIdx) => (
-                        <motion.li
-                          key={iIdx}
-                          variants={itemVariants}
-                          className="flex items-start gap-2.5 text-sm text-gray-600 leading-relaxed"
-                        >
-                          <FaCheckCircle className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${cfg.color}`} />
-                          <span>{item}</span>
-                        </motion.li>
-                      ))}
-                    </motion.ul>
-                  </div>
-                </motion.div>
-              );
-            })}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Bar */}
-      <motion.section
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
-        className="px-4 sm:px-6 pb-12 md:pb-24"
-      >
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-gray-50 border border-gray-100 rounded-2xl py-5 md:py-8 px-4 md:px-6">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              {stats.map((stat, idx) => (
-                <div key={idx} className="text-center">
-                  <p className="text-lg font-bold text-gray-900">{stat.label}</p>
-                </div>
-              ))}
+      {/* Stats strip — like company logos strip */}
+      <section className="max-w-4xl mx-auto px-6 pb-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-100 border border-gray-100 rounded-2xl overflow-hidden">
+          {stats.map((s) => (
+            <div key={s.label} className="bg-white py-6 text-center">
+              <p className="text-2xl font-bold tracking-tight">{s.value}</p>
+              <p className="text-xs text-gray-400 uppercase tracking-widest mt-1">
+                {s.label}
+              </p>
             </div>
-          </div>
+          ))}
         </div>
-      </motion.section>
-    </div>
+      </section>
+
+      {/* Pitstops list */}
+      <section className="max-w-3xl mx-auto px-6 pb-20">
+        {sections.map((sec, si) => (
+          <motion.div
+            key={sec.section}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-40px" }}
+            transition={{ duration: 0.5 }}
+            className="py-10 border-t border-gray-100 first:border-t-0"
+          >
+            <Eyebrow>{`0${si + 1} — ${sec.section}`}</Eyebrow>
+            <ul className="space-y-4">
+              {sec.items.map((item, i) => (
+                <li key={i} className="flex gap-3 text-gray-600 leading-relaxed">
+                  <span className="mt-2.5 w-1.5 h-1.5 rounded-full bg-gray-900 shrink-0" />
+                  <span className="text-[15px]">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+        ))}
+      </section>
+    </PortfolioLayout>
   );
 }
